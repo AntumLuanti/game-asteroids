@@ -11,5 +11,6 @@ Concept asteroids game for [Luanti](https://www.luanti.org/)
 
 ## Links
 
+- [Forum](https://forum.luanti.org/viewtopic.php?t=32557)
 - [Changelog](changelog.txt)
 - [TODO](TODO.txt)
