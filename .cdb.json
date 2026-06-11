@@ -1,0 +1,20 @@
+{
+	"$schema": "https://content.luanti.org/api/cdb_schema/",
+	"type": "GAME",
+	"title": "asteroids",
+	"name": "Asteroids",
+	"short_description": "Avoid or destroy the asteroids.",
+	"dev_state": "WIP",
+	"ai_disclosure": "NONE",
+	"tags": ["shooter", "singleplayer", "survival"],
+	"content_warnings": null,
+	"license": "MIT",
+	"media_license": "CC0",
+	"repo": "https://codeberg.org/AntumLuanti/game-asteroids",
+	"issue_tracker": "https://codeberg.org/AntumLuanti/game-asteroids/issues",
+	"website": null,
+	"forums": null,
+	"video_url": null,
+	"donate_url": null,
+	"translation_url": null
+}
