@@ -5,3 +5,4 @@ TODO:
 - disable fog
 - make night persist
 - show stars in all directions
+- limit world size
