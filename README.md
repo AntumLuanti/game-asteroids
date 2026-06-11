@@ -12,5 +12,9 @@ Concept asteroids game for [Luanti](https://www.luanti.org/)
 ## Links
 
 - [Forum](https://forum.luanti.org/viewtopic.php?t=32557)
+- Git Mirrors:
+    - [Codeberg](https://codeberg.org/AntumLuanti/game-asteroids)
+    - [GitHub](https://github.com/AntumLuanti/game-asteroids)
+    - [GitLab](https://gitlab.com/AntumLuanti/game-asteroids)
 - [Changelog](changelog.txt)
 - [TODO](TODO.txt)
