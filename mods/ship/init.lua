@@ -23,3 +23,6 @@ core.register_on_joinplayer(function(player, last_login)
 	props.visual = "mesh"
 	player:set_properties(props)
 end)
+
+-- hide hand
+core.override_item("", {wield_image="asteroids_empty.png"})
