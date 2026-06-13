@@ -36,19 +36,5 @@ core.register_on_joinplayer(function(player, last_login)
 	player:set_properties(props)
 end)
 
-local shoot = function(itemstack, user, pointed)
-	core.sound_play({name="asteroids_ship_shoot"})
-
-	-- TODO:
-end
-
--- hide hand
-core.override_item("", {
-	wield_image="asteroids_empty.png",
-	on_use = shoot,
-	on_secondary_use = shoot,
-	on_place = shoot,
-})
-
 -- disable fog by default
 core.settings:set_bool("enable_fog", false)
