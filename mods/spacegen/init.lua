@@ -20,5 +20,5 @@ end)
 
 core.register_globalstep(function(dtime)
 	-- make night persist
-	core.set_timeofday(0)
+	core.set_timeofday(0.5)
 end)
