@@ -3,6 +3,5 @@ TODO:
 - create spaceship mod & override player controls
 - create asteroids generator & add to map based on player position
 - disable fog
-- make night persist
 - show stars in all directions
 - limit world size

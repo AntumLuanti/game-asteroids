@@ -32,3 +32,9 @@ core.register_on_generated(function(vmanip, minp, maxp, blockseed)
 	vm:set_lighting({day=0, night=15})
 	vm:write_to_map()
 end)
+
+
+core.register_globalstep(function(dtime)
+	-- make night persist
+	core.set_timeofday(0)
+end)
