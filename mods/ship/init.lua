@@ -5,7 +5,15 @@ core.register_on_joinplayer(function(player, last_login)
 	-- disable sun, moon, & clouds
 	player:set_sun({visible=false})
 	player:set_moon({visible=false})
-	player:set_sky({clouds=false})
+	player:set_sky({
+		type = "skybox",
+		textures = {
+			"asteroids_stars.png", "asteroids_stars.png",
+			"asteroids_stars.png", "asteroids_stars.png",
+			"asteroids_stars.png", "asteroids_stars.png"
+		},
+		clouds = false
+	})
 	-- TODO: disable fog
 
 	-- disable inventory
