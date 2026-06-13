@@ -26,3 +26,6 @@ end)
 
 -- hide hand
 core.override_item("", {wield_image="asteroids_empty.png"})
+
+-- disable fog by default
+core.settings:set_bool("enable_fog", false)
