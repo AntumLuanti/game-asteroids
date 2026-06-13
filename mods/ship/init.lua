@@ -22,13 +22,18 @@ core.register_on_joinplayer(function(player, last_login)
 	-- disable hotbar
 	player:hud_set_flags({hotbar=false})
 
-	-- set player model & mesh
-	local model = "rocket.obj"
-	--~ player.animation, player.animation_speed, player.animation_loop = nil, nil, nil
 	local props = player:get_properties()
-	props.mesh = model
-	props.textures = {"rocket.png"}
-	props.visual = "mesh"
+	-- set player model & mesh
+	--~ props.mesh = "asteroids_ship.obj"
+	--~ props.textures = {"asteroids_ship.png"}
+	-- temporary placeholder to represent ship/player visually
+	props.visual = "cube"
+	props.visual_size = {x=1, y=1, z=1}
+	props.textures = {
+		"asteroids_ship_side.png", "asteroids_ship_side.png",
+		"asteroids_ship_side.png", "asteroids_ship_side.png",
+		"asteroids_ship_side.png", "asteroids_ship_side.png"
+	}
 	player:set_properties(props)
 end)
 
