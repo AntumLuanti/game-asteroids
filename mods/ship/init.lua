@@ -34,6 +34,7 @@ core.register_on_joinplayer(function(player, last_login)
 		"asteroids_ship_side.png", "asteroids_ship_side.png",
 		"asteroids_ship_side.png", "asteroids_ship_side.png"
 	}
+	props.eye_height = 0
 	player:set_properties(props)
 end)
 
