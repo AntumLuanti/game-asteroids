@@ -1,4 +1,7 @@
 
+dofile(core.get_modpath(core.get_current_modname()).."/weapon.lua")
+
+
 core.register_on_joinplayer(function(player, last_login)
 	-- make player fly
 	player:set_physics_override({gravity=0})
