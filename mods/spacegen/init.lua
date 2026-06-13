@@ -2,22 +2,6 @@
 -- no air in space
 core.unregister_item("air")
 
--- create a "space" node to simulate flying
-core.register_node(":space", {
-	description = "empty space",
-	drawtype = "airlike",
-	paramtype = "light",
-	is_ground_content = false,
-	sunlight_propagates = true,
-	walkable = false,
-	pointable = false,
-	diggable = false,
-	climbable = true,
-	buildable_to = true,
-	floodable = true
-})
-
-
 -- override mapgen to only use space nodes
 core.set_mapgen_setting("mg_name", "singlenode", true)
 core.set_mapgen_setting("mg_flags", "nomountains, nocurves, noridges, nobiomes", true)
