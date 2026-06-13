@@ -24,16 +24,10 @@ core.register_on_joinplayer(function(player, last_login)
 
 	local props = player:get_properties()
 	-- set player model & mesh
-	--~ props.mesh = "asteroids_ship.obj"
-	--~ props.textures = {"asteroids_ship.png"}
-	-- temporary placeholder to represent ship/player visually
-	props.visual = "cube"
+	props.visual = "mesh"
+	props.mesh = "asteroids_ship.obj"
+	props.textures = {"asteroids_ship.png"}
 	props.visual_size = {x=1, y=1, z=1}
-	props.textures = {
-		"asteroids_ship_side.png", "asteroids_ship_side.png",
-		"asteroids_ship_side.png", "asteroids_ship_side.png",
-		"asteroids_ship_side.png", "asteroids_ship_side.png"
-	}
 	props.eye_height = 0
 	player:set_properties(props)
 end)
