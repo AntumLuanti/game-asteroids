@@ -33,7 +33,13 @@ core.register_on_joinplayer(function(player, last_login)
 end)
 
 -- hide hand
-core.override_item("", {wield_image="asteroids_empty.png"})
+core.override_item("", {
+	wield_image="asteroids_empty.png",
+	sound = {
+		punch_use = {name="asteroids_ship_shoot"},
+		punch_use_air = {name="asteroids_ship_shoot"}
+	}
+})
 
 -- disable fog by default
 core.settings:set_bool("enable_fog", false)
