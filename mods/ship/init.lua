@@ -5,6 +5,7 @@ core.register_on_joinplayer(function(player, last_login)
 	-- disable sun, moon, & clouds
 	player:set_sun({visible=false, sunrise_visible=false})
 	player:set_moon({visible=false})
+	player:set_stars({visible=false})
 	player:set_sky({
 		type = "skybox",
 		textures = {
