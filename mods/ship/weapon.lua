@@ -9,6 +9,10 @@ core.register_entity("asteroids_ship:projectile", {
 	static_save = false
 })
 
+local getTimeMS = function()
+	return math.floor(core.get_us_time() / 1000)
+end
+
 local shoot = function(itemstack, user, pointed)
 	core.sound_play({name="asteroids_ship_shoot"})
 
