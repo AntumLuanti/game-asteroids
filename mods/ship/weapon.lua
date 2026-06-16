@@ -18,9 +18,9 @@ local shoot = function(itemstack, user, pointed)
 		local upos = user:get_pos()
 		local ulook = user:get_look_dir()
 
-		local proj = core.add_entity({x=upos.x+ulook.x, y=upos.y+ulook.y, z=upos.z+ulook.z},
+		local obj = core.add_entity({x=upos.x+ulook.x, y=upos.y+ulook.y, z=upos.z+ulook.z},
 				"asteroids_ship:projectile")
-		proj:set_velocity({x=ulook.x*speed, y=ulook.y*speed, z=ulook.z*speed})
+		obj:set_velocity({x=ulook.x*speed, y=ulook.y*speed, z=ulook.z*speed})
 	end
 
 	-- TODO:
