@@ -1,7 +1,7 @@
 
 core.register_entity("asteroids_ship:projectile", {
 	physical = true,
-	collide_with_objects = true,
+	collide_with_objects = false,
 	collisionbox = {-0.125, -0.125, -0.125, 0.125, 0.125, 0.125},
 	pointable = false,
 	visual = "sprite",
