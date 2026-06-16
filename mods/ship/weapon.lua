@@ -14,7 +14,7 @@ local shoot = function(itemstack, user, pointed)
 
 	if user then
 		-- FIXME: sometimes projectiles move at wrong angle during rapid fire
-		local speed = 10
+		local speed = 40
 		local upos = user:get_pos()
 		local ulook = user:get_look_dir()
 
