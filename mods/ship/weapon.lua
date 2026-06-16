@@ -20,7 +20,11 @@ local shoot = function(itemstack, user, pointed)
 
 		local obj = core.add_entity({x=upos.x+ulook.x, y=upos.y+ulook.y, z=upos.z+ulook.z},
 				"asteroids_ship:projectile")
-		obj:set_velocity({x=ulook.x*speed, y=ulook.y*speed, z=ulook.z*speed})
+		if obj then
+			obj:set_velocity({x=ulook.x*speed, y=ulook.y*speed, z=ulook.z*speed})
+		else
+			core.log("error", "failed to create projectile at system time "..fire_time.."ms")
+		end
 	end
 
 	-- TODO:
