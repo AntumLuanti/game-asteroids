@@ -1,6 +1,7 @@
 
 
 -- empty "space" node
+-- TODO: rename & move to "vacuum" mod
 core.register_node(":space", {
 	description = "empty space",
 	drawtype = "airlike",
