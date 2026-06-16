@@ -43,3 +43,20 @@ core.override_item("", {
 	on_secondary_use = shoot,
 	on_place = shoot,
 })
+
+core.register_globalstep(function(dtime)
+	local step_time = getTimeMS()
+	for idx = #projectiles, 1, -1 do
+		proj = projectiles[idx]
+		if step_time - proj.birth >= 2000 then
+			-- remove projectile from world
+			proj.obj:remove()
+			table.remove(projectiles, idx)
+			if proj.obj:is_valid() then
+				core.log("error", "failed to remove projectile at system time "..step_time.."ms")
+			end
+		end
+
+		-- TODO: handle collision with asteroids
+	end
+end)
