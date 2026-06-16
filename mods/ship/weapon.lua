@@ -9,6 +9,8 @@ core.register_entity("asteroids_ship:projectile", {
 	static_save = false
 })
 
+local projectiles = {}
+
 local getTimeMS = function()
 	return math.floor(core.get_us_time() / 1000)
 end
@@ -18,6 +20,7 @@ local shoot = function(itemstack, user, pointed)
 
 	if user then
 		-- FIXME: sometimes projectiles move at wrong angle during rapid fire
+		local fire_time = getTimeMS()
 		local speed = 40
 		local upos = user:get_pos()
 		local ulook = user:get_look_dir()
@@ -26,12 +29,11 @@ local shoot = function(itemstack, user, pointed)
 				"asteroids_ship:projectile")
 		if obj then
 			obj:set_velocity({x=ulook.x*speed, y=ulook.y*speed, z=ulook.z*speed})
+			table.insert(projectiles, {obj=obj, birth=fire_time})
 		else
 			core.log("error", "failed to create projectile at system time "..fire_time.."ms")
 		end
 	end
-
-	-- TODO:
 end
 
 -- hide hand
