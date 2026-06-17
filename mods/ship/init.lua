@@ -80,3 +80,27 @@ local ship_controls = {
 		end
 	end,
 }
+
+local logic = function()
+	if not player then
+		return
+	end
+
+	ship_controls:update_velocity()
+
+	local input = player:get_player_control()
+	local input_changed = false
+
+	for k, v in pairs(input) do
+		if input[k] ~= player_input[k] then
+			input_changed = true
+			ship_controls:handle_input_change(input)
+			break
+		end
+	end
+end
+
+
+core.register_globalstep(function(dtime)
+	logic()
+end)
