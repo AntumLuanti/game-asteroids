@@ -2,7 +2,8 @@
 
 ## Description
 
-Concept asteroids game for [Luanti](https://www.luanti.org/)
+Concept asteroids game for [Luanti](https://www.luanti.org/). Current this is just a
+proof-of-concept. Log in (singleplayer only) & shoot the asteroids (currently only 10 will spawn).
 
 ## Licensing
 
