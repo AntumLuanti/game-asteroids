@@ -83,7 +83,9 @@ local ship_controls = {
 	end,
 
 	update_velocity = function(self)
+		-- TODO: ship should "coast" after boost
 		if self.boosting then
+			-- FIXME: there is some jittering during boost when changing look direction due to client updating before receiving response
 			local pos = player:get_pos()
 			local look = player:get_look_dir()
 			player:set_pos({x=pos.x+look.x*self.speed, y=pos.y+look.y*self.speed, z=pos.z+look.z*self.speed})
