@@ -8,7 +8,12 @@ core.register_on_prejoinplayer(function(name, ip)
 	end
 end)
 
-core.register_on_joinplayer(function(player, last_login)
+local player = nil
+local player_input = nil
+
+core.register_on_joinplayer(function(player_ref, last_login)
+	player = player_ref
+	player_input = player:get_player_control()
 	player:set_physics_override({
 		speed = 0,
 		jump = 0
