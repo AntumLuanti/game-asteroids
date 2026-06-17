@@ -13,7 +13,6 @@ core.register_on_generated(function(vmanip, minp, maxp, blockseed)
 		vm_data[idx] = c_id
 	end
 	vm:set_data(vm_data)
-	--~ vm:set_lighting({day=0, night=15})
 	vm:write_to_map()
 end)
 
