@@ -2,6 +2,12 @@
 dofile(core.get_modpath(core.get_current_modname()).."/weapon.lua")
 
 
+core.register_on_prejoinplayer(function(name, ip)
+	if name ~= "singleplayer" then
+		return "single player only allowed"
+	end
+end)
+
 core.register_on_joinplayer(function(player, last_login)
 	-- make player fly
 	player:set_physics_override({gravity=0})
