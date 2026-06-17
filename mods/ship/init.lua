@@ -57,3 +57,26 @@ end)
 
 -- disable fog by default
 core.settings:set_bool("enable_fog", false)
+
+
+local ship_controls = {
+	speed = 10,
+	sound_handle = nil,
+	boosting = false,
+
+	handle_input_change = function(self, input)
+		if input.movement_y ~= player_input.movement_y then
+			self.boosting = input.movement_y == 1
+		end
+
+		player_input = input
+	end,
+
+	update_velocity = function(self)
+		if self.boosting then
+			local pos = player:get_pos()
+			local look = player:get_look_dir()
+			player:set_pos({x=pos.x+look.x*self.speed, y=pos.y+look.y*self.speed, z=pos.z+look.z*self.speed})
+		end
+	end,
+}
