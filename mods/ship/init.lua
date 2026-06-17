@@ -60,7 +60,7 @@ core.settings:set_bool("enable_fog", false)
 
 
 local ship_controls = {
-	speed = 10,
+	speed = 0.01,
 	sound_handle = nil,
 	boosting = false,
 
