@@ -67,9 +67,19 @@ local ship_controls = {
 	handle_input_change = function(self, input)
 		if input.movement_y ~= player_input.movement_y then
 			self.boosting = input.movement_y == 1
+			self:handle_sound()
 		end
 
 		player_input = input
+	end,
+
+	handle_sound = function(self)
+		if self.boosting and not self.sound_handle then
+			self.sound_handle = core.sound_play({name="asteroids_ship_engine"}, {loop=true})
+		elseif not self.boosting and self.sound_handle then
+			core.sound_stop(self.sound_handle)
+			self.sound_handle = nil
+		end
 	end,
 
 	update_velocity = function(self)
