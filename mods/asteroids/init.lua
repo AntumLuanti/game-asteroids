@@ -22,7 +22,7 @@ local register_asteroid = function(a_type, a_size)
 	core.register_entity(":"..name, {
 		initial_properties = {
 			static_save = false,
-			visual = "node",
+			visual = "cube",
 			visual_size = {x=size, y=size, z=size},
 			textures = {"asteroids_"..a_type..".png"},
 			physical = true,
