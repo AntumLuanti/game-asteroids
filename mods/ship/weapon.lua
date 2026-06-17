@@ -20,7 +20,6 @@ local shoot = function(itemstack, user, pointed)
 	core.sound_play({name="asteroids_ship_shoot"})
 
 	if user then
-		-- FIXME: sometimes projectiles move at wrong angle during rapid fire
 		local fire_time = getTimeMS()
 		local speed = 40
 		local upos = user:get_pos()
