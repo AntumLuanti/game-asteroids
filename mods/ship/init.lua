@@ -9,6 +9,10 @@ core.register_on_prejoinplayer(function(name, ip)
 end)
 
 core.register_on_joinplayer(function(player, last_login)
+	player:set_physics_override({
+		speed = 0,
+		jump = 0
+	})
 	player:set_pos({x=0, y=0, z=0})
 	player:set_look_horizontal(0)
 	player:set_look_vertical(0)
