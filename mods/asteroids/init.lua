@@ -4,13 +4,13 @@ local register_asteroid = function(a_type, a_size)
 	local size = 0
 	if a_size == "small" then
 		hp = 1
-		size = 1
+		size = 0.5
 	elseif a_size == "medium" then
 		hp = 3
-		size = 2
+		size = 1
 	elseif a_size == "large" then
 		hp = 5
-		size = 3
+		size = 2
 	else
 		core.log("error", "unknown asteroid size: "..a_size)
 		return
