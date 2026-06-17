@@ -57,7 +57,7 @@ local register_asteroid = function(a_type, a_size)
 	})
 end
 
-for _, a_type in pairs({"rock", "ice"}) do
+for _, a_type in pairs({"rock", "ice", "molten"}) do
 	for _, a_size in pairs({"small", "medium", "large"}) do
 		register_asteroid(a_type, a_size)
 	end
