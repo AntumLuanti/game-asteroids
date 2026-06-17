@@ -1,15 +1,17 @@
 
+local rand = PcgRandom(core.get_us_time())
+
 local register_asteroid = function(a_type, a_size)
 	local hp = 0
 	local size = 0
 	if a_size == "small" then
-		hp = 1
+		hp = 3
 		size = 0.5
 	elseif a_size == "medium" then
-		hp = 3
+		hp = 5
 		size = 1
 	elseif a_size == "large" then
-		hp = 5
+		hp = 10
 		size = 2
 	else
 		core.log("error", "unknown asteroid size: "..a_size)
