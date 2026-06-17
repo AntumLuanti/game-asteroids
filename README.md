@@ -15,6 +15,10 @@ textures will be added in the future.
 
 __Sounds:__
 
+- asteroids_ship_engine
+    - [CC0]
+    - author: theMinesAreShakin
+    - [link](https://opengameart.org/node/170392)
 - asteroids_ship_shoot
     - [CC BY 3.0]
     - author: dklon
@@ -32,3 +36,4 @@ __Sounds:__
 
 
 [CC BY 3.0]: https://creativecommons.org/licenses/by/3.0/
+[CC0]
