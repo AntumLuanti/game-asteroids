@@ -48,6 +48,23 @@ core.register_globalstep(function(dtime)
 	local step_time = getTimeMS()
 	for idx = #projectiles, 1, -1 do
 		proj = projectiles[idx]
+
+		local pos = proj.obj:get_pos()
+		local targets = core.get_objects_inside_radius(pos, 1)
+
+		for _, obj in pairs(targets) do
+			if obj ~= proj.obj and not obj:is_player() then
+				obj:set_hp(obj:get_hp()-1)
+				proj.obj:remove()
+				table.remove(projectiles, idx)
+				if proj.obj:is_valid() then
+					core.log("error", "failed to remove projectile on impact")
+				end
+				-- projectile can only affect 1 target
+				break
+			end
+		end
+
 		if step_time - proj.birth >= 2000 then
 			-- remove projectile from world
 			proj.obj:remove()
