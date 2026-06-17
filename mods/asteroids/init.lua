@@ -17,6 +17,7 @@ local register_asteroid = function(a_type, a_size)
 	end
 
 	local collision_offset = size / 2
+	local t = "asteroids_"..a_type..".png"
 
 	local name = "asteroids:"..a_type.."_"..a_size
 	core.register_entity(":"..name, {
@@ -24,7 +25,11 @@ local register_asteroid = function(a_type, a_size)
 			static_save = false,
 			visual = "cube",
 			visual_size = {x=size, y=size, z=size},
-			textures = {"asteroids_"..a_type..".png"},
+			textures = {
+				t, t,
+				t, t,
+				t, t,
+			},
 			physical = true,
 			collide_with_objects = true,
 			collisionbox = {
