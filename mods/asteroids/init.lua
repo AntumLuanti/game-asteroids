@@ -41,6 +41,19 @@ local register_asteroid = function(a_type, a_size)
 			hp_max = hp,
 			is_visible = true,
 		},
+
+		on_step = function(self, dtime, moveresult)
+			if not self._speed then
+				self._speed = rand:next(1, 5) / 10
+				local yaw = rand:next(0, 359) * (math.pi / 180)
+				local pitch = rand:next(0, 359) * (math.pi / 180)
+				self.object:set_velocity({
+					x = self._speed * math.cos(pitch) * math.sin(yaw),
+					y = self._speed * math.sin(pitch),
+					z = self._speed * math.cos(pitch) * math.cos(yaw)
+				})
+			end
+		end
 	})
 end
 
