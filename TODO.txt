@@ -1,6 +1,7 @@
 
 TODO:
-- create asteroids generator & add to map based on player position
+- create asteroids generator & add to map randomly based on player position
 - disable fog permanently
 - limit world size
 - make ship "coast" after boost
+- add particles near player for movement sensing
