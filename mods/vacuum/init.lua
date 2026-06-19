@@ -1,7 +1,7 @@
 
 
 -- empty "space" node
-core.register_node(":space", {
+core.register_node(":vacuum", {
 	description = "empty space",
 	drawtype = "airlike",
 	paramtype = "light",

@@ -8,7 +8,7 @@ core.set_mapgen_setting("mg_flags", "nomountains, nocurves, noridges, nobiomes",
 core.register_on_generated(function(vmanip, minp, maxp, blockseed)
 	local vm = core.get_mapgen_object("voxelmanip")
 	local vm_data = vm:get_data()
-	local c_id = core.get_content_id("space")
+	local c_id = core.get_content_id("vacuum")
 	for idx in ipairs(vm_data) do
 		vm_data[idx] = c_id
 	end
