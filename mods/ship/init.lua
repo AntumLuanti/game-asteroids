@@ -8,6 +8,32 @@ core.register_on_prejoinplayer(function(name, ip)
 	end
 end)
 
+
+-- score HUD ID
+local hud_id = nil
+
+--- Updates or adds score HUD.
+--
+--  @param player
+--    Player whose HUD is being updated.
+local update_score_hud = function(player)
+	local meta = player:get_meta()
+	local text = "score: "..meta:get_int("score").."\nhigh score: "..meta:get_int("high score")
+
+	if hud_id == nil then
+		hud_id = player:hud_add({
+			type = "text",
+			position = {x=0.9, y=0.05},
+			alignment = {x=1, y=1},
+			number = "0xFFFFFF",
+			text = text
+		})
+	else
+		player:hud_change(hud_id, "text", text)
+	end
+end
+
+
 local player = nil
 local player_input = nil
 
@@ -62,6 +88,8 @@ core.register_on_joinplayer(function(player_ref, last_login)
 	local prev_score = meta:get_int("score") or 0
 	-- reset score for new game
 	meta:set_int("score", 0)
+
+	update_score_hud(player)
 end)
 
 -- disable fog by default
