@@ -241,6 +241,7 @@ local register_asteroid = function(a_type, a_size)
 			},
 			hp_max = hp,
 			is_visible = true,
+			show_on_minimap = true
 		},
 
 		-- number of points awarded for destroying this asteroid
