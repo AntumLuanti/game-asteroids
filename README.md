@@ -16,6 +16,10 @@ textures will be added in the future.
 
 __Sounds:__
 
+- menu theme
+    - [CC0]
+    - author: ColinSc
+    - [link](https://freesound.org/s/546762/)
 - asteroids_ship_engine
     - [CC0]
     - author: theMinesAreShakin
