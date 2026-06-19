@@ -2,6 +2,10 @@
 dofile(core.get_modpath(core.get_current_modname()).."/weapon.lua")
 
 
+-- force damage
+core.settings:set_bool("enable_damage", true)
+
+
 core.register_on_prejoinplayer(function(name, ip)
 	if name ~= "singleplayer" then
 		return "single player only allowed"
