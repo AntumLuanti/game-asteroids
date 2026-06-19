@@ -6,3 +6,4 @@ TODO:
 - fix jittery direction change while boosting
 - fix screen turning white at times
 - user better collision detection
+- make up larger asteroids of multiple nodes
