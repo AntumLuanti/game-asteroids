@@ -7,6 +7,8 @@
 An attempt at making an Asteroids game for [Luanti]. It is working enough to be considered a
 proof-of-concept. But it's very buggy.
 
+Video demo: https://youtu.be/8d2IdKHrvcE
+
 ## Gameplay
 
 _singleplayer only_
