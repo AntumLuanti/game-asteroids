@@ -143,6 +143,9 @@ local register_asteroid = function(a_type, a_size)
 			is_visible = true,
 		},
 
+		-- number of points awarded for destroying this asteroid
+		point_value = hp,
+
 
 		--- Calculates asteroid decimal age with milliseconds precision.
 		--
