@@ -2,6 +2,17 @@
 local rand = PcgRandom(core.get_us_time())
 
 
+--- Retrieves random decimal value within range with thousandths precision.
+--
+--  @param vmin
+--    The range minimum value that can be returned.
+--  @param vmax
+--    The range maximum value that can be returned.
+local rand_thousandth = function(vmin, vmax)
+	return rand:next(vmin*1000, vmax*1000) / 1000
+end
+
+
 --- Retrieves system time.
 --
 --  @return
