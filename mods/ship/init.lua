@@ -53,6 +53,15 @@ core.register_on_joinplayer(function(player_ref, last_login)
 	props.visual_size = {x=1, y=1, z=1}
 	props.eye_height = 0
 	player:set_properties(props)
+
+	local meta = player:get_meta()
+	if meta:get_int("high score") == nil then
+		meta:set_int("high score", 0)
+	end
+	-- TODO: display this in HUD?
+	local prev_score = meta:get_int("score") or 0
+	-- reset score for new game
+	meta:set_int("score", 0)
 end)
 
 -- disable fog by default
