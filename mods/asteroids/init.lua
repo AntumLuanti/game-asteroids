@@ -231,6 +231,7 @@ local register_asteroid = function(a_type, a_size)
 		return
 	end
 
+	local point_value = hp
 	local collision_offset = size / 2
 	local t = "asteroids_"..a_type..".png"
 
@@ -256,8 +257,14 @@ local register_asteroid = function(a_type, a_size)
 			show_on_minimap = true
 		},
 
-		-- number of points awarded for destroying this asteroid
-		point_value = hp,
+
+		--- Retrieves point value of this asteroid.
+		--
+		--  @return
+		--    Points to be awarded to player when destroyed.
+		get_point_value = function(self)
+			return point_value
+		end,
 
 
 		--- Retrieves name registered to this asteroid.
@@ -373,7 +380,7 @@ local register_asteroid = function(a_type, a_size)
 			self:on_removed()
 
 			if type(on_destroyed) == "function" then
-				on_destroyed(killer, self.point_value)
+				on_destroyed(killer, self:get_point_value())
 			end
 		end,
 
