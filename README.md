@@ -31,11 +31,7 @@ So far everything here is [CC0]. But more textures will be added in the future.
 
 __Sounds:__
 
-- menu theme
-    - [CC0]
-    - author: ColinSc
-    - [link](https://freesound.org/s/546762/)
-- asteroids_hit
+- menu theme &amp; asteroids_hit
     - [CC0]
     - author: ColinSc
     - [link](https://freesound.org/s/546762/)
