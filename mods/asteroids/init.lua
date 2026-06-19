@@ -84,6 +84,10 @@ local gameplay_center = {x=0, y=0, z=0}
 local age_limit_minutes = 5
 
 
+-- number of active asteroids
+local active = 0
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
@@ -148,6 +152,8 @@ local register_asteroid = function(a_type, a_size)
 			if self.origin == nil then
 				-- FIXME: should be done at time of creation?
 
+				active = active + 1
+
 				self.origin = {
 					ms = get_time_ms(),
 					--~ pos = self.object:get_pos()
@@ -181,17 +187,33 @@ local register_asteroid = function(a_type, a_size)
 			-- remove from game if moved past boundaries of gameplay
 			if distance_from_center > gameplay_radius then
 				self.object:remove()
+				self:on_removed()
 				return
 			end
 
 			-- remove from game if age limit reached
 			if math.floor(self:get_age() / 60) >= age_limit_minutes then
 				self.object:remove()
+				self:on_removed()
 				return
 			end
 
 			-- update asteroid's angle of rotation
 			rotate_step(self)
+		end,
+
+
+		on_death = function(self, killer)
+			self:on_removed()
+		end,
+
+
+		--- Called when an asteroid is removed from game.
+		on_removed = function(self)
+			active = active - 1
+
+			-- DEBUG:
+			core.log("remaining asteroids: "..active)
 		end
 	})
 end
