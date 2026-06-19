@@ -120,6 +120,8 @@ core.register_on_player_receive_fields(function(player_ref, formname, fields)
 		if fields.respawn then
 			player_ref:respawn()
 		elseif fields.quit then
+			-- reset hp to prevent death formspec displaying at next startup
+			player_ref:set_hp(player_ref:get_properties().hp_max)
 			core.request_shutdown()
 		end
 	end
