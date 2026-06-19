@@ -163,6 +163,9 @@ local register_asteroid = function(a_type, a_size)
 				-- random rate at which asteroid will rotate
 				self.rot_rate = next_rot_rate()
 			end
+
+			-- update asteroid's angle of rotation
+			rotate_step(self)
 		end
 	})
 end
