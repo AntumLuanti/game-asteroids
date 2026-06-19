@@ -217,21 +217,24 @@ end
 local register_asteroid = function(a_type, a_size)
 	local hp = 0
 	local size = 0
+	local point_value = 1
 	if a_size == "small" then
-		hp = 3
+		hp = classic_gameplay and 1 or 3
 		size = 0.5
+		point_value = classic_gameplay and 100 or 20
 	elseif a_size == "medium" then
-		hp = 5
+		hp = classic_gameplay and 1 or 5
 		size = 1
+		point_value = 50
 	elseif a_size == "large" then
-		hp = 10
+		hp = classic_gameplay and 1 or 10
 		size = 2
+		point_value = classic_gameplay and 20 or 100
 	else
 		core.log("error", "unknown asteroid size: "..a_size)
 		return
 	end
 
-	local point_value = hp
 	local collision_offset = size / 2
 	local t = "asteroids_"..a_type..".png"
 
