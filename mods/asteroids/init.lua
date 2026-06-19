@@ -112,8 +112,8 @@ local gameplay_center = {x=0, y=0, z=0}
 local age_limit_minutes = 5
 
 
--- number of active asteroids
-local active = 0
+-- list of active asteroids
+local active_asteroids = {}
 -- max limit of number of active asteroids
 local active_limit = 20
 
@@ -123,7 +123,7 @@ local active_limit = 20
 --  @return
 --    `true` if number of active asteroids doesn't meet limit.
 asteroids.can_spawn = function()
-	return active < active_limit
+	return #active_asteroids < active_limit
 end
 
 
@@ -220,7 +220,7 @@ local register_asteroid = function(a_type, a_size)
 			if self.origin == nil then
 				-- FIXME: should be done at time of creation?
 
-				if active >= active_limit then
+				if #active_asteroids >= active_limit then
 					-- FIXME: this should be done before object is created
 					-- DEBUG:
 					core.log("warning", "too many asteroids, removing ...")
@@ -228,7 +228,8 @@ local register_asteroid = function(a_type, a_size)
 					return
 				end
 
-				active = active + 1
+				-- add to list of active asteroids
+				table.insert(active_asteroids, self)
 
 				self.origin = {
 					ms = get_time_ms(),
@@ -299,10 +300,15 @@ local register_asteroid = function(a_type, a_size)
 
 		--- Called when an asteroid is removed from game.
 		on_removed = function(self)
-			active = active - 1
+			for idx, obj in ipairs(active_asteroids) do
+				if obj == self then
+					table.remove(active_asteroids, idx)
+					break
+				end
+			end
 
 			-- DEBUG:
-			core.log("remaining asteroids: "..active)
+			core.log("remaining asteroids: "..#active_asteroids)
 		end
 	})
 end
