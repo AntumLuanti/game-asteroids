@@ -1,4 +1,3 @@
-
 asteroids = {
 	modname = core.get_current_modname()
 }
@@ -246,6 +245,14 @@ local register_asteroid = function(a_type, a_size)
 
 		-- number of points awarded for destroying this asteroid
 		point_value = hp,
+
+
+		--- Retrieves asteroid type info from name.
+		get_type = function(self)
+			local a_name = string.match(self.object:get_name(), ":%s*(.*)")
+			local tmp = string.gmatch(a_name, "[^_]+")
+			return {material=tmp[1], size=tmp[2]}
+        end,
 
 
 		--- Calculates asteroid decimal age with milliseconds precision.
