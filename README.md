@@ -20,6 +20,10 @@ __Sounds:__
     - [CC0]
     - author: theMinesAreShakin
     - [link](https://opengameart.org/node/170392)
+- asteroids_ship_explosion
+    - [CC0]
+    - author: Rick Hoppmann (TinyWorlds)
+    - [link](https://opengameart.org/node/33778)
 - asteroids_ship_shoot
     - [CC BY 3.0]
     - author: dklon
