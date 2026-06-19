@@ -110,6 +110,7 @@ core.register_on_joinplayer(function(player_ref, last_login)
 end)
 
 core.register_on_respawnplayer(function(player_ref)
+	asteroids.clear()
 	asteroids.set_paused(false)
 	on_start()
 end)
