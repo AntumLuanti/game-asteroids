@@ -1,7 +1,7 @@
 
 
 -- empty "space" node
-core.register_node(":vacuum", {
+local vacuum = {
 	description = "empty space",
 	drawtype = "airlike",
 	paramtype = "light",
@@ -13,4 +13,21 @@ core.register_node(":vacuum", {
 	climbable = true,
 	buildable_to = true,
 	floodable = true
-})
+}
+
+-- empty "space" node with particle visual
+local vacuum_particle = {
+	description = "empty space particle",
+	drawtype = "glasslike",
+	tiles = {"asteroids_vacuum_particle.png"},
+	use_texture_alpha = "blend",
+}
+for k, v in pairs(vacuum) do
+	if vacuum_particle[k] == nil then
+		vacuum_particle[k] = v
+	end
+end
+
+
+core.register_node(":vacuum", vacuum)
+core.register_node(":vacuum_particle", vacuum_particle)
