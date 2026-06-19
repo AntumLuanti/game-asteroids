@@ -8,6 +8,14 @@ asteroids.modpath = core.get_modpath(asteroids.modname)
 -- determines if rules resembling classic gameplay should be used
 local classic_gameplay = core.settings:get_bool("asteroids.classic", false)
 
+--- Retrieves classic gameplay state.
+--
+--  @return
+--    `true` if classic gameplay rules are in effect.
+asteroids.is_classic_gameplay = function()
+	return classic_gameplay
+end
+
 
 local rand = PcgRandom(core.get_us_time())
 
