@@ -88,14 +88,22 @@ local register_asteroid = function(a_type, a_size)
 		},
 
 		on_step = function(self, dtime, moveresult)
-			if not self._speed then
-				self._speed = rand:next(1, 5) / 10
+			if self.origin == nil then
+				self.origin = {
+					ms = get_time_ms(),
+					pos = self.object:get_pos()
+				}
+
+				-- speed at which asteroid is travelling
+				local speed = rand:next(1, 5) / 10
+				-- direction toward which asteroid is travelling
 				local yaw = rand:next(0, 359) * (math.pi / 180)
 				local pitch = rand:next(0, 359) * (math.pi / 180)
+				-- apply speed & direction to asteroid
 				self.object:set_velocity({
-					x = self._speed * math.cos(pitch) * math.sin(yaw),
-					y = self._speed * math.sin(pitch),
-					z = self._speed * math.cos(pitch) * math.cos(yaw)
+					x = speed * math.cos(pitch) * math.sin(yaw),
+					y = speed * math.sin(pitch),
+					z = speed * math.cos(pitch) * math.cos(yaw)
 				})
 			end
 		end
