@@ -20,6 +20,10 @@ __Sounds:__
     - [CC0]
     - author: ColinSc
     - [link](https://freesound.org/s/546762/)
+- asteroids_hit
+    - [CC0]
+    - author: ColinSc
+    - [link](https://freesound.org/s/546762/)
 - asteroids_ship_engine
     - [CC0]
     - author: theMinesAreShakin
