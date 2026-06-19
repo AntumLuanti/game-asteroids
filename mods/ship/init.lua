@@ -110,6 +110,7 @@ core.register_on_joinplayer(function(player_ref, last_login)
 end)
 
 core.register_on_respawnplayer(function(player_ref)
+	asteroids.set_paused(false)
 	on_start()
 end)
 
@@ -139,6 +140,9 @@ core.show_death_screen = function(player_ref, reason)
 	core.show_formspec(player_ref:get_player_name(), "death", death_formspec)
 end
 
+core.register_on_dieplayer(function(player_ref, reason)
+	asteroids.set_paused(true)
+end)
 
 -- callback when an asteroid is destroyed
 asteroids.set_on_destroyed(function(player, points)
