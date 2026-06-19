@@ -74,6 +74,10 @@ local rotate_step = function(ref)
 end
 
 
+-- node radius of gameplay boundaries
+local gameplay_radius = 50
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
@@ -162,6 +166,14 @@ local register_asteroid = function(a_type, a_size)
 
 				-- random rate at which asteroid will rotate
 				self.rot_rate = next_rot_rate()
+			end
+
+			-- distance asteroid has traveled from its origin
+			local distance_from_origin = math.floor(get_distance(self.object:get_pos(), self.origin.pos))
+			-- remove from game if moved past boundaries of gameplay
+			if distance_from_origin > gameplay_radius then
+				self.object:remove()
+				return
 			end
 
 			-- update asteroid's angle of rotation
