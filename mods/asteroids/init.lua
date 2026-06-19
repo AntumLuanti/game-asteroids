@@ -143,6 +143,9 @@ local register_asteroid = function(a_type, a_size)
 					y = rand:next(0, 359) * (math.pi / 180),
 					z = rand:next(0, 359) * (math.pi / 180)
 				})
+
+				-- random rate at which asteroid will rotate
+				self.rot_rate = next_rot_rate()
 			end
 		end
 	})
