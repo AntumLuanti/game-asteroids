@@ -101,6 +101,7 @@ core.register_on_joinplayer(function(player_ref, last_login)
 	props.textures = {"asteroids_ship.png"}
 	props.visual_size = {x=1, y=1, z=1}
 	props.eye_height = 0
+	props.hp_max = 1
 	player:set_properties(props)
 
 	on_start()
