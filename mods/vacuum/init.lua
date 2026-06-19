@@ -18,8 +18,12 @@ local vacuum = {
 -- empty "space" node with particle visual
 local vacuum_particle = {
 	description = "empty space particle",
-	drawtype = "glasslike",
-	tiles = {"asteroids_vacuum_particle.png"},
+	drawtype = "allfaces",
+	visual_scale = 0.005,
+	tiles = {
+		"asteroids_vacuum_particle.png", "asteroids_vacuum_particle.png", "asteroids_vacuum_particle.png",
+		"asteroids_vacuum_particle.png", "asteroids_vacuum_particle.png", "asteroids_vacuum_particle.png"
+	},
 	use_texture_alpha = "blend",
 }
 for k, v in pairs(vacuum) do
