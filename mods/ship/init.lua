@@ -107,6 +107,11 @@ core.register_on_joinplayer(function(player_ref, last_login)
 	on_start()
 end)
 
+core.register_on_respawnplayer(function(player_ref)
+	on_start()
+end)
+
+
 -- disable fog by default
 core.settings:set_bool("enable_fog", false)
 
