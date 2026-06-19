@@ -1,0 +1,3 @@
+
+# Determines if rules resembling classic gameplay should be used.
+asteroids.classic (Classic Asteroids) bool false
