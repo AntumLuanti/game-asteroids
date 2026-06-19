@@ -1,4 +1,8 @@
 
+local time_ms = core.get_us_time() / 1000
+
+local rand = PcgRandom(time_ms)
+
 -- no air in space
 core.unregister_item("air")
 
@@ -8,8 +12,9 @@ core.set_mapgen_setting("mg_flags", "nomountains, nocurves, noridges, nobiomes",
 core.register_on_generated(function(vmanip, minp, maxp, blockseed)
 	local vm = core.get_mapgen_object("voxelmanip")
 	local vm_data = vm:get_data()
-	local c_id = core.get_content_id("vacuum")
 	for idx in ipairs(vm_data) do
+		-- randomly place vacuum or particle nodes
+		local c_id = rand:next(1, 300) == 1 and core.get_content_id("vacuum_particle") or core.get_content_id("vacuum")
 		vm_data[idx] = c_id
 	end
 	vm:set_data(vm_data)
@@ -18,10 +23,6 @@ end)
 
 
 local spawned = 0
-
-local time_ms = core.get_us_time() / 1000
-
-local rand = PcgRandom(time_ms)
 
 local a_types = {"rock", "ice", "molten"}
 local a_sizes = {"small", "medium", "large"}
