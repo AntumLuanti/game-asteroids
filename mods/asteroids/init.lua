@@ -382,6 +382,27 @@ local register_asteroid = function(a_type, a_size)
 			if type(on_destroyed) == "function" then
 				on_destroyed(killer, self:get_point_value())
 			end
+
+			if classic_gameplay then
+				local a_type = self:get_type()
+				if a_type.size == "large" then
+					local pos = self.object:get_pos()
+					-- replace with two medium asteroids
+					for idx = 1, 2, 1 do
+						local o_pos = {y=pos.y, z=pos.z}
+						-- offset so appear next to each other
+						if idx == 1 then
+							o_pos.x = pos.x + 0.75
+						else
+							o_pos.x = pos.x - 0.75
+						end
+						local obj = core.add_entity(o_pos, "asteroids:"..a_type.material.."_medium")
+						if not obj then
+							core.log("error", "failed to add asteroids to game")
+						end
+					end
+				end
+			end
 		end,
 
 
