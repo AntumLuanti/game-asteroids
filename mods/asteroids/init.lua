@@ -6,7 +6,7 @@ asteroids.modpath = core.get_modpath(asteroids.modname)
 
 
 -- determines if rules resembling classic gameplay should be used
-local classic_gameplay = core.settings:get_bool("asteroids.classic", false)
+local classic_gameplay = core.settings:get_bool("asteroids.classic", true)
 
 --- Retrieves classic gameplay state.
 --
