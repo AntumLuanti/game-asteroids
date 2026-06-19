@@ -1,3 +1,5 @@
-.*      export-ignore
-*.flac  export-ignore
-*.wav   export-ignore
+.*         export-ignore
+*.flac     export-ignore
+*.wav      export-ignore
+*.xcf      export-ignore
+*.xcf.bz2  export-ignore
