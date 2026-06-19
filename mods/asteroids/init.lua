@@ -2,6 +2,15 @@
 local rand = PcgRandom(core.get_us_time())
 
 
+--- Retrieves system time.
+--
+--  @return
+--    System time in milliseconds.
+local get_time_ms = function()
+	return math.floor(core.get_us_time() / 1000)
+end
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
