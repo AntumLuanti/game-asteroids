@@ -37,6 +37,28 @@ end
 local player = nil
 local player_input = nil
 
+
+--- Initializes player with default values.
+local on_start = function()
+	-- TODO: clear asteroids
+
+	player:set_pos({x=0, y=0, z=0})
+	player:set_look_horizontal(0)
+	player:set_look_vertical(0)
+
+	local meta = player:get_meta()
+	if meta:get_int("high score") == nil then
+		meta:set_int("high score", 0)
+	end
+	-- TODO: display this in HUD?
+	local prev_score = meta:get_int("score") or 0
+	-- reset score for new game
+	meta:set_int("score", 0)
+
+	update_score_hud(player)
+end
+
+
 core.register_on_joinplayer(function(player_ref, last_login)
 	player = player_ref
 	player_input = player:get_player_control()
@@ -44,9 +66,6 @@ core.register_on_joinplayer(function(player_ref, last_login)
 		speed = 0,
 		jump = 0
 	})
-	player:set_pos({x=0, y=0, z=0})
-	player:set_look_horizontal(0)
-	player:set_look_vertical(0)
 
 	-- make player fly
 	player:set_physics_override({gravity=0})
@@ -80,16 +99,7 @@ core.register_on_joinplayer(function(player_ref, last_login)
 	props.eye_height = 0
 	player:set_properties(props)
 
-	local meta = player:get_meta()
-	if meta:get_int("high score") == nil then
-		meta:set_int("high score", 0)
-	end
-	-- TODO: display this in HUD?
-	local prev_score = meta:get_int("score") or 0
-	-- reset score for new game
-	meta:set_int("score", 0)
-
-	update_score_hud(player)
+	on_start()
 end)
 
 -- disable fog by default
