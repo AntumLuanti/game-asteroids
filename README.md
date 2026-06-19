@@ -11,8 +11,7 @@ __Code:__ [MIT](LICENSE.txt)
 
 __Textures:__
 
-So far everything here is [CC0](https://creativecommons.org/publicdomain/zero/1.0/). But more
-textures will be added in the future.
+So far everything here is [CC0]. But more textures will be added in the future.
 
 __Sounds:__
 
@@ -49,4 +48,4 @@ __Sounds:__
 
 
 [CC BY 3.0]: https://creativecommons.org/licenses/by/3.0/
-[CC0]
+[CC0]: https://creativecommons.org/publicdomain/zero/1.0/
