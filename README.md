@@ -7,6 +7,16 @@
 Concept asteroids game for [Luanti](https://www.luanti.org/). Current this is just a
 proof-of-concept. Log in (singleplayer only) & shoot the asteroids (currently only 10 will spawn).
 
+## Gameplay
+
+__Controls:__
+
+- mouse: change facing direction
+- W: move forward in facing direction
+- left/right mouse button: fire
+
+__Objective:__ Destroy asteroids to score points while avoiding being hit.
+
 ## Licensing
 
 __Code:__ [MIT](LICENSE.txt)
