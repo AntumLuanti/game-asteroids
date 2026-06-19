@@ -40,6 +40,24 @@ local get_distance = function(A, B)
 end
 
 
+--- Creates a rate of rotation.
+--
+--  @return
+--    Vector defining random rotation rate & direction for each axis.
+local next_rot_rate = function()
+	-- rotation direction for each axis (0 = no rotation, 1 = clockwise, -1 = counter-clockwise)
+	local rot_dir_x = rand:next(-1, 1)
+	local rot_dir_y = rand:next(-1, 1)
+	local rot_dir_z = rand:next(-1, 1)
+
+	return {
+		x = rand_thousandth(0.001, 0.01) * rot_dir_x,
+		y = rand_thousandth(0.001, 0.01) * rot_dir_y,
+		z = rand_thousandth(0.001, 0.01) * rot_dir_z
+	}
+end
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
