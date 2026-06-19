@@ -118,6 +118,13 @@ local register_asteroid = function(a_type, a_size)
 					y = speed * math.sin(pitch),
 					z = speed * math.cos(pitch) * math.cos(yaw)
 				})
+
+				-- initial rotation angle
+				self.object:set_rotation({
+					x = rand:next(0, 359) * (math.pi / 180),
+					y = rand:next(0, 359) * (math.pi / 180),
+					z = rand:next(0, 359) * (math.pi / 180)
+				})
 			end
 		end
 	})
