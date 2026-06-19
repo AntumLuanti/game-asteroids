@@ -232,19 +232,28 @@ local register_asteroid = function(a_type, a_size)
 
 				self.origin = {
 					ms = get_time_ms(),
-					--~ pos = self.object:get_pos()
+					pos = self.object:get_pos()
 				}
 
 				-- speed at which asteroid is travelling
 				local speed = rand:next(5, 20) / 10
-				-- direction toward which asteroid is travelling
-				local yaw = rand:next(0, 359) * (math.pi / 180)
-				local pitch = rand:next(0, 359) * (math.pi / 180)
+
+				local target_point = gameplay_center
+				local player = core.get_player_by_name("singleplayer")
+				if player ~= nil then
+					target_point = player:get_pos()
+				end
+
+				-- use player position to calculate direction of travel
+				local dir = direction_between(self.origin.pos, target_point)
+				-- randomly offset slightly
+				dir.yaw = dir.yaw + rand_thousandth(-0.2, 0.2)
+				dir.pitch = dir.pitch + rand_thousandth(-0.2, 0.2)
 				-- apply speed & direction to asteroid
 				self.object:set_velocity({
-					x = speed * math.cos(pitch) * math.sin(yaw),
-					y = speed * math.sin(pitch),
-					z = speed * math.cos(pitch) * math.cos(yaw)
+					x = speed * math.cos(dir.pitch) * math.sin(dir.yaw),
+					y = speed * math.sin(dir.pitch),
+					z = speed * math.cos(dir.pitch) * math.cos(dir.yaw)
 				})
 
 				-- initial rotation angle
