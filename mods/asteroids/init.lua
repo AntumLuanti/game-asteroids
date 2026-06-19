@@ -1,3 +1,4 @@
+
 asteroids = {
 	modname = core.get_current_modname()
 }
@@ -256,7 +257,7 @@ local register_asteroid = function(a_type, a_size)
 			local a_name = string.match(self.object:get_name(), ":%s*(.*)")
 			local tmp = string.gmatch(a_name, "[^_]+")
 			return {material=tmp[1], size=tmp[2]}
-        end,
+		end,
 
 
 		--- Calculates asteroid decimal age with milliseconds precision.
