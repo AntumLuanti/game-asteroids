@@ -96,6 +96,27 @@ end)
 core.settings:set_bool("enable_fog", false)
 
 
+-- callback when an asteroid is destroyed
+asteroids.set_on_destroyed(function(player, points)
+	if player == nil then
+		player = core.get_player_by_name("singleplayer")
+	end
+
+	if player == nil then
+		core.log("warning", "cannot award points to nil player")
+		return
+	end
+
+	local meta = player:get_meta()
+	points = meta:get_int("score") + points
+	meta:set_int("score", points)
+	if points > meta:get_int("high score") then
+		meta:set_int("high score", points)
+	end
+	update_score_hud(player)
+end)
+
+
 local ship_controls = {
 	speed = 0.01,
 	sound_handle = nil,
