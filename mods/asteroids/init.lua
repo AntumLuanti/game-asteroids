@@ -210,7 +210,7 @@ local register_asteroid = function(a_type, a_size)
 				}
 
 				-- speed at which asteroid is travelling
-				local speed = rand:next(1, 5) / 10
+				local speed = rand:next(5, 20) / 10
 				-- direction toward which asteroid is travelling
 				local yaw = rand:next(0, 359) * (math.pi / 180)
 				local pitch = rand:next(0, 359) * (math.pi / 180)
