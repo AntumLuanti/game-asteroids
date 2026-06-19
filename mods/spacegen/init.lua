@@ -34,6 +34,10 @@ core.register_globalstep(function(dtime)
 	-- make light persist
 	core.set_timeofday(0.5)
 
+	if asteroids.is_paused() then
+		return
+	end
+
 	local step_time = core.get_us_time() / 1000
 	if step_time - time_ms > 3000 and asteroids.can_spawn() then
 		if rand:next(1, 10) == 1 then

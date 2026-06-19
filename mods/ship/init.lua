@@ -216,5 +216,9 @@ end
 
 
 core.register_globalstep(function(dtime)
+	if asteroids.is_paused() then
+		return
+	end
+
 	logic()
 end)

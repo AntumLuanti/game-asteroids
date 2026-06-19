@@ -297,6 +297,10 @@ local register_asteroid = function(a_type, a_size)
 				self.rot_rate = next_rot_rate()
 			end
 
+			if game_paused then
+				return
+			end
+
 			-- distance asteroid has traveled from gameplay area center
 			local distance_from_center = math.floor(get_distance(self.object:get_pos(), gameplay_center))
 			-- remove from game if moved past boundaries of gameplay
@@ -350,6 +354,10 @@ end
 
 
 core.register_globalstep(function(dtime)
+	if game_paused then
+		return
+	end
+
 	local hit = false
 	for _, ref in pairs(active_asteroids) do
 		local pos = ref.object:get_pos()

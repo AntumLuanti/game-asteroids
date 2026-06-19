@@ -45,6 +45,11 @@ core.override_item("", {
 })
 
 core.register_globalstep(function(dtime)
+	if asteroids.is_paused() then
+		-- FIXME: projectiles still age
+		return
+	end
+
 	local step_time = getTimeMS()
 	for idx = #projectiles, 1, -1 do
 		proj = projectiles[idx]
