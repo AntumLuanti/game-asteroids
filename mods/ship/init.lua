@@ -112,6 +112,30 @@ core.register_on_respawnplayer(function(player_ref)
 end)
 
 
+core.register_on_player_receive_fields(function(player_ref, formname, fields)
+	if formname == "death" then
+		core.close_formspec(player_ref:get_player_name(), formname)
+		if fields.respawn then
+			player_ref:respawn()
+		elseif fields.quit then
+			core.request_shutdown()
+		end
+	end
+end)
+
+-- TODO: clean up
+local death_formspec = "\
+size[9,3]\
+label[4,0;You Died]\
+button[1,0.5;3,2;respawn;Try Again]\
+button[5,0.5;3,2;quit;Quit]\
+"
+
+core.show_death_screen = function(player_ref, reason)
+	core.show_formspec(player_ref:get_player_name(), "death", death_formspec)
+end
+
+
 -- disable fog by default
 core.settings:set_bool("enable_fog", false)
 
