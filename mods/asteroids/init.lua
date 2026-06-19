@@ -77,6 +77,9 @@ end
 -- node radius of gameplay boundaries
 local gameplay_radius = 50
 
+-- positional center of gameplay boundaries
+local gameplay_center = {x=0, y=0, z=0}
+
 -- maxium age of asteroids in minutes
 local age_limit_minutes = 5
 
@@ -145,7 +148,7 @@ local register_asteroid = function(a_type, a_size)
 			if self.origin == nil then
 				self.origin = {
 					ms = get_time_ms(),
-					pos = self.object:get_pos()
+					--~ pos = self.object:get_pos()
 				}
 
 				-- speed at which asteroid is travelling
@@ -171,10 +174,10 @@ local register_asteroid = function(a_type, a_size)
 				self.rot_rate = next_rot_rate()
 			end
 
-			-- distance asteroid has traveled from its origin
-			local distance_from_origin = math.floor(get_distance(self.object:get_pos(), self.origin.pos))
+			-- distance asteroid has traveled from gameplay area center
+			local distance_from_center = math.floor(get_distance(self.object:get_pos(), gameplay_center))
 			-- remove from game if moved past boundaries of gameplay
-			if distance_from_origin > gameplay_radius then
+			if distance_from_center > gameplay_radius then
 				self.object:remove()
 				return
 			end
