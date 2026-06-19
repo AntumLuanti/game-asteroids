@@ -4,6 +4,8 @@ dofile(core.get_modpath(core.get_current_modname()).."/weapon.lua")
 
 -- force damage
 core.settings:set_bool("enable_damage", true)
+-- disable fog by default
+core.settings:set_bool("enable_fog", false)
 
 
 core.register_on_prejoinplayer(function(name, ip)
@@ -134,10 +136,6 @@ button[5,0.5;3,2;quit;Quit]\
 core.show_death_screen = function(player_ref, reason)
 	core.show_formspec(player_ref:get_player_name(), "death", death_formspec)
 end
-
-
--- disable fog by default
-core.settings:set_bool("enable_fog", false)
 
 
 -- callback when an asteroid is destroyed
