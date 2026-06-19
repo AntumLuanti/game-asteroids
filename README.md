@@ -4,10 +4,12 @@
 
 ## Description
 
-Concept asteroids game for [Luanti](https://www.luanti.org/). Current this is just a
-proof-of-concept. Log in (singleplayer only) & shoot the asteroids (currently only 10 will spawn).
+An attempt at making an Asteroids game for [Luanti]. It is working enough to be considered a
+proof-of-concept. But it's very buggy.
 
 ## Gameplay
+
+_singleplayer only_
 
 __Controls:__
 
@@ -58,6 +60,8 @@ __Sounds:__
 - [Changelog](changelog.txt)
 - [TODO](TODO.txt)
 
+
+[Luanti]: https://www.luanti.org/
 
 [CC BY 3.0]: https://creativecommons.org/licenses/by/3.0/
 [CC0]: https://creativecommons.org/publicdomain/zero/1.0/
