@@ -87,6 +87,19 @@ local register_asteroid = function(a_type, a_size)
 			is_visible = true,
 		},
 
+
+		--- Calculates asteroid decimal age with milliseconds precision.
+		--
+		--  @return
+		--    Asteroids age since added to game.
+		get_age = function(self)
+			if self.origin == nil or self.origin.ms == nil then
+				return 0
+			end
+			return (get_time_ms() - self.origin.ms) / 1000
+		end,
+
+
 		on_step = function(self, dtime, moveresult)
 			if self.origin == nil then
 				self.origin = {
