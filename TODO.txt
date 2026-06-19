@@ -5,3 +5,4 @@ TODO:
 - limit world size
 - make ship "coast" after boost
 - add particles near player for movement sensing
+- damage ship on contact with asteroid
