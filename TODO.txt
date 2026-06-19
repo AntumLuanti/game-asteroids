@@ -12,3 +12,4 @@ TODO:
 - don't exit out of game over formspec with ESC or by clicking outside formspec area
 - fix asteroids only spawning on one side of player
 - increase difficulty with time
+- show minimap by default
