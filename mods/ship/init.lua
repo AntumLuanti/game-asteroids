@@ -138,7 +138,7 @@ end)
 -- TODO: clean up
 local death_formspec = "\
 size[9,3]\
-label[4,0;You Died]\
+label[3.85,0;Game Over]\
 button[1,0.5;3,2;respawn;Try Again]\
 button[5,0.5;3,2;quit;Quit]\
 "
