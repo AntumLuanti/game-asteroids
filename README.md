@@ -52,6 +52,7 @@ __Sounds:__
 
 ## Links
 
+- [ContentDB](https://content.luanti.org/packages/AntumDeluge/asteroids/)
 - [Forum](https://forum.luanti.org/viewtopic.php?t=32557)
 - Git Mirrors:
     - [Codeberg](https://codeberg.org/AntumLuanti/game-asteroids)
