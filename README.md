@@ -1,5 +1,7 @@
 # Asteroids Game for Luanti
 
+![](screenshot.png)
+
 ## Description
 
 Concept asteroids game for [Luanti](https://www.luanti.org/). Current this is just a
