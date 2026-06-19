@@ -3,7 +3,8 @@ TODO:
 - disable fog permanently
 - limit world size
 - make ship "coast" after boost
-- damage ship on contact with asteroid
 - fix jittery direction change while boosting
 - fix screen turning white at times
 - user better collision detection
+- play sound when player dies
+- play sound when asteroid hit
