@@ -59,6 +59,7 @@ core.register_globalstep(function(dtime)
 
 		for _, obj in pairs(targets) do
 			if obj ~= proj.obj and not obj:is_player() then
+				core.sound_play({name="asteroids_hit"})
 				obj:set_hp(obj:get_hp()-1)
 				proj.obj:remove()
 				table.remove(projectiles, idx)
