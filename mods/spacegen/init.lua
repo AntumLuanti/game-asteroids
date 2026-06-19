@@ -3,6 +3,9 @@ local time_ms = core.get_us_time() / 1000
 
 local rand = PcgRandom(time_ms)
 
+-- limit viewing range to omit distance particles
+core.settings:set("max_block_send_distance", 0)
+
 -- no air in space
 core.unregister_item("air")
 
