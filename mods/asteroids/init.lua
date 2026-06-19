@@ -86,6 +86,8 @@ local age_limit_minutes = 5
 
 -- number of active asteroids
 local active = 0
+-- max limit of number of active asteroids
+local active_limit = 20
 
 
 --- Registers an asteroid.
@@ -151,6 +153,14 @@ local register_asteroid = function(a_type, a_size)
 		on_step = function(self, dtime, moveresult)
 			if self.origin == nil then
 				-- FIXME: should be done at time of creation?
+
+				if active >= active_limit then
+					-- FIXME: this should be done before object is created
+					-- DEBUG:
+					core.log("warning", "too many asteroids, removing ...")
+					self.object:remove()
+					return
+				end
 
 				active = active + 1
 
