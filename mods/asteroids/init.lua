@@ -77,6 +77,9 @@ end
 -- node radius of gameplay boundaries
 local gameplay_radius = 50
 
+-- maxium age of asteroids in minutes
+local age_limit_minutes = 5
+
 
 --- Registers an asteroid.
 --
@@ -172,6 +175,12 @@ local register_asteroid = function(a_type, a_size)
 			local distance_from_origin = math.floor(get_distance(self.object:get_pos(), self.origin.pos))
 			-- remove from game if moved past boundaries of gameplay
 			if distance_from_origin > gameplay_radius then
+				self.object:remove()
+				return
+			end
+
+			-- remove from game if age limit reached
+			if math.floor(self:get_age() / 60) >= age_limit_minutes then
 				self.object:remove()
 				return
 			end
