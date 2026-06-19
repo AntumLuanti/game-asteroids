@@ -6,5 +6,4 @@ TODO:
 - fix jittery direction change while boosting
 - fix screen turning white at times
 - user better collision detection
-- play sound when player dies
 - play sound when asteroid hit

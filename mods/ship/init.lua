@@ -109,6 +109,12 @@ core.register_on_joinplayer(function(player_ref, last_login)
 	on_start()
 end)
 
+
+core.register_on_dieplayer(function(player_ref, reason)
+	core.sound_play({name="asteroids_ship_explosion"})
+end)
+
+
 core.register_on_respawnplayer(function(player_ref)
 	asteroids.clear()
 	asteroids.set_paused(false)
