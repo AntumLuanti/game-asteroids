@@ -27,7 +27,7 @@ local a_types = {"rock", "ice", "molten"}
 local a_sizes = {"small", "medium", "large"}
 
 core.register_globalstep(function(dtime)
-	-- make night persist
+	-- make light persist
 	core.set_timeofday(0.5)
 
 	local step_time = core.get_us_time() / 1000
