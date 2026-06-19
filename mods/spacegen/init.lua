@@ -17,7 +17,7 @@ core.register_on_generated(function(vmanip, minp, maxp, blockseed)
 end)
 
 
-local spawned = {}
+local spawned = 0
 
 local time_ms = core.get_us_time() / 1000
 
@@ -31,16 +31,16 @@ core.register_globalstep(function(dtime)
 	core.set_timeofday(0.5)
 
 	local step_time = core.get_us_time() / 1000
-	if #spawned < 10 and step_time - time_ms > 3000 then
+	if step_time - time_ms > 3000 then
 		if rand:next(1, 10) == 1 then
 			time_ms = step_time
 			local a_type = a_types[rand:next(1, 3)]
 			local a_size = a_sizes[rand:next(1, 3)]
 			local obj = core.add_entity({x=0, y=0, z=5}, "asteroids:"..a_type.."_"..a_size)
 			if obj then
-				table.insert(spawned, obj)
+				spawned = spawned + 1
 				-- DEBUG:
-				core.log("spawned asteroid "..tostring(#spawned).." ("..a_type.."_"..a_size..")")
+				core.log("spawned asteroid "..spawned.." ("..a_type.."_"..a_size..")")
 			else
 				core.log("warning", "failed to spawn asteroid")
 			end
