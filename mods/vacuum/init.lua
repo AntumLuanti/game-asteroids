@@ -10,7 +10,6 @@ local vacuum = {
 	walkable = false,
 	pointable = false,
 	diggable = false,
-	climbable = true,
 	buildable_to = true,
 	floodable = true
 }
