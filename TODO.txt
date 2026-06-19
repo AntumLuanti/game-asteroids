@@ -1,10 +1,8 @@
 
 TODO:
-- create asteroids generator & add to map randomly based on player position
 - disable fog permanently
 - limit world size
 - make ship "coast" after boost
 - add particles near player for movement sensing
 - damage ship on contact with asteroid
 - show score & high score
-- spawn asteroids to within a 20 node radius of player

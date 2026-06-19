@@ -36,7 +36,15 @@ core.register_globalstep(function(dtime)
 			time_ms = step_time
 			local a_type = a_types[rand:next(1, 3)]
 			local a_size = a_sizes[rand:next(1, 3)]
-			local obj = core.add_entity({x=0, y=0, z=5}, "asteroids:"..a_type.."_"..a_size)
+			local player = core.get_player_by_name("singleplayer")
+			local pos = player ~= nil and player:get_pos() or {x=0, y=0, z=0}
+
+			-- calculate to within 20 nodes (5 node min to prevent spawning on player)
+			pos.x = pos.x + math.max(5, rand:next(-20, 20))
+			pos.y = pos.y + math.max(5, rand:next(-20, 20))
+			pos.z = pos.z + math.max(5, rand:next(-20, 20))
+
+			local obj = core.add_entity(pos, "asteroids:"..a_type.."_"..a_size)
 			if obj then
 				spawned = spawned + 1
 				-- DEBUG:
