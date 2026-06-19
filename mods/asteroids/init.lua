@@ -1,4 +1,10 @@
 
+asteroids = {
+	modname = core.get_current_modname()
+}
+asteroids.modpath = core.get_modpath(asteroids.modname)
+
+
 local rand = PcgRandom(core.get_us_time())
 
 
