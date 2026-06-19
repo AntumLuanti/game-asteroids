@@ -118,6 +118,15 @@ local active = 0
 local active_limit = 20
 
 
+--- Checks if spawning a new asteroid should be allowed.
+--
+--  @return
+--    `true` if number of active asteroids doesn't meet limit.
+asteroids.can_spawn = function()
+	return active < active_limit
+end
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
