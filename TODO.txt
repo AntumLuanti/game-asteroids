@@ -7,3 +7,4 @@ TODO:
 - fix screen turning white at times
 - user better collision detection
 - make up larger asteroids of multiple nodes
+- use scoring of original Asteroids game
