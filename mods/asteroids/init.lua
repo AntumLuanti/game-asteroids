@@ -260,6 +260,15 @@ local register_asteroid = function(a_type, a_size)
 		point_value = hp,
 
 
+		--- Retrieves name registered to this asteroid.
+		--
+		--  @return
+		--    Asteroid name.
+		get_name = function(self)
+			return name
+		end,
+
+
 		--- Retrieves asteroid type info from name.
 		get_type = function(self)
 			local a_name = string.match(self.object:get_name(), ":%s*(.*)")
