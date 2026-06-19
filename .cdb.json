@@ -5,7 +5,7 @@
 	"title": "Asteroids",
 	"short_description": "Avoid & destroy the asteroids.",
 	"dev_state": "WIP",
-	"ai_disclosure": "NONE",
+	"ai_disclosure": "ASSISTED",
 	"tags": ["shooter", "singleplayer", "survival"],
 	"content_warnings": null,
 	"license": "MIT",
