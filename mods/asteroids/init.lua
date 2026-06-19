@@ -271,8 +271,11 @@ local register_asteroid = function(a_type, a_size)
 
 		--- Retrieves asteroid type info from name.
 		get_type = function(self)
-			local a_name = string.match(self.object:get_name(), ":%s*(.*)")
-			local tmp = string.gmatch(a_name, "[^_]+")
+			local a_name = string.match(self:get_name(), ":%s*(.*)")
+			local tmp = {}
+			for x in string.gmatch(a_name, "[^_]+") do
+				table.insert(tmp, x)
+			end
 			return {material=tmp[1], size=tmp[2]}
 		end,
 
