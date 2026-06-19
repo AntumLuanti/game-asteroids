@@ -1,6 +1,13 @@
 
 local rand = PcgRandom(core.get_us_time())
 
+
+--- Registers an asteroid.
+--
+--  @param a_type
+--    Asteroid type (should be one of "rock", "ice", or "molten" to match textures).
+--  @param a_size
+--    Asteroid size (must be one of "small", "medium", or "large").
 local register_asteroid = function(a_type, a_size)
 	local hp = 0
 	local size = 0
