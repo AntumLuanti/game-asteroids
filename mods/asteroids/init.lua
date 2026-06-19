@@ -401,6 +401,13 @@ local register_asteroid = function(a_type, a_size)
 							core.log("error", "failed to add asteroids to game")
 						end
 					end
+				elseif a_type.size == "medium" then
+					-- replace with single small asteroid
+					local obj = core.add_entity(self.object:get_pos(), "asteroids:"..a_type.material
+							.."_small")
+					if not obj then
+						core.log("error", "failed to add asteroids to game")
+					end
 				end
 			end
 		end,
