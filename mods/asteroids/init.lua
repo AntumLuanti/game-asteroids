@@ -244,6 +244,18 @@ asteroids.spawn = function(player, a_type, pos)
 end
 
 
+--- Retrieves available asteroid materials.
+asteroids.get_materials = function()
+	return {"rock", "ice", "molten"}
+end
+
+
+--- Retrieves available asteroid sizes.
+asteroids.get_sizes = function()
+	return {"small", "medium", "large"}
+end
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
@@ -467,8 +479,8 @@ local register_asteroid = function(a_type, a_size)
 	})
 end
 
-for _, a_type in pairs({"rock", "ice", "molten"}) do
-	for _, a_size in pairs({"small", "medium", "large"}) do
+for _, a_type in pairs(asteroids.get_materials()) do
+	for _, a_size in pairs(asteroids.get_sizes()) do
 		register_asteroid(a_type, a_size)
 	end
 end
