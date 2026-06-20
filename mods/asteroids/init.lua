@@ -11,32 +11,6 @@ local rand = asteroids.rand
 local rand_thousandth = asteroids.rand_thousandth
 
 
---- Calculates direction between two points.
---
---  @param A
---    Vector point of origin.
---  @param B
---    Vector point of target.
-local direction_between = function(A, B)
-	local disp = {
-		x = B.x - A.x,
-		y = B.y - A.y,
-		z = B.z - A.z
-	}
-	local dist = math.sqrt((disp.x * disp.x) + (disp.y * disp.y) + (disp.z * disp.z))
-	local norm = {
-		x = disp.x / dist,
-		y = disp.y / dist,
-		z = disp.z / dist
-	}
-
-	return {
-		yaw = math.atan2(norm.x, norm.z),
-		pitch = math.asin(norm.y)
-	}
-end
-
-
 --- Spawns a new asteroid in vicinity of player.
 --
 --  @param player
