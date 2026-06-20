@@ -20,6 +20,30 @@ asteroids.is_classic_gameplay = function()
 end
 
 
+--- Retrieves random integer value within range.
+--
+--  @param vmin
+--    The range minimum value that can be returned.
+--  @param vmax
+--    The range maximum value that can be returned.
+local rand = PcgRandom(core.get_us_time())
+asteroids.rand = function(vmin, vmax)
+	return rand:next(vmin, vmax)
+end
+
+
+--- Retrieves random decimal value within range with thousandths precision.
+--
+--  @param vmin
+--    The range minimum value that can be returned.
+--  @param vmax
+--    The range maximum value that can be returned.
+local rand_thousandth = function(vmin, vmax)
+	return rand:next(vmin*1000, vmax*1000) / 1000
+end
+asteroids.rand_thousandth = rand_thousandth
+
+
 --- Called when an asteroid is destroyed.
 --
 --  @param player

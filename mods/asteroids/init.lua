@@ -7,26 +7,8 @@ asteroids.modpath = core.get_modpath(asteroids.modname)
 local register_asteroid = dofile(asteroids.modpath.."/api.lua")
 
 
-
-local rand = PcgRandom(core.get_us_time())
-
-
---- Retrieves random decimal value within range with thousandths precision.
---
---  @param vmin
---    The range minimum value that can be returned.
---  @param vmax
---    The range maximum value that can be returned.
-local rand_thousandth = function(vmin, vmax)
-	return rand:next(vmin*1000, vmax*1000) / 1000
-end
-
-
--- make rand functions available globally
-asteroids.rand = function(vmin, vmax)
-	return rand:next(vmin, vmax)
-end
-asteroids.rand_thousandth = rand_thousandth
+local rand = asteroids.rand
+local rand_thousandth = asteroids.rand_thousandth
 
 
 --- Calculates distance between two positional vectors.
