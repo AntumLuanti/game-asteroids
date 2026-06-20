@@ -351,6 +351,7 @@ local register_asteroid = function(a_type, a_size)
 
 
 		on_step = function(self, dtime, moveresult)
+			-- FIXME: not being called in classic mode
 			if self.origin == nil then
 				-- FIXME: should be done at time of creation?
 
@@ -409,6 +410,7 @@ local register_asteroid = function(a_type, a_size)
 			-- distance asteroid has traveled from gameplay area center
 			local distance_from_center = math.floor(get_distance(self.object:get_pos(), gameplay_center))
 			-- remove from game if moved past boundaries of gameplay
+			-- TODO: ignore if in classic mode
 			if distance_from_center > gameplay_radius then
 				self.object:remove()
 				self:on_removed()
@@ -416,6 +418,7 @@ local register_asteroid = function(a_type, a_size)
 			end
 
 			-- remove from game if age limit reached
+			-- TODO: ignore if in classic mode
 			if math.floor(self:get_age() / 60) >= age_limit_minutes then
 				self.object:remove()
 				self:on_removed()
