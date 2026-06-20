@@ -43,10 +43,6 @@ end
 local player = nil
 local player_input = nil
 
-local asteroids_per_level = {
-	[1] = 4
-}
-
 --- Initializes player with default values.
 local on_start = function()
 	player:set_pos({x=0, y=0, z=0})

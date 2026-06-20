@@ -31,6 +31,11 @@ local a_types = asteroids.get_materials()
 local a_sizes = asteroids.get_sizes()
 
 
+-- determines how many asteroids to spawn at a game level
+local asteroids_per_level = {
+	[1] = 4
+}
+
 -- temporary reference to active player
 local player_ref
 
