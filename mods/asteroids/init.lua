@@ -29,15 +29,6 @@ end
 asteroids.rand_thousandth = rand_thousandth
 
 
---- Retrieves system time.
---
---  @return
---    System time in milliseconds.
-local get_time_ms = function()
-	return math.floor(core.get_us_time() / 1000)
-end
-
-
 --- Calculates distance between two positional vectors.
 --
 --  @param A

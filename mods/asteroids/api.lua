@@ -1,4 +1,13 @@
 
+--- Retrieves system time.
+--
+--  @return
+--    System time in milliseconds.
+local get_time_ms = function()
+	return math.floor(core.get_us_time() / 1000)
+end
+
+
 -- determines if rules resembling classic gameplay should be used
 local classic_gameplay = core.settings:get_bool("asteroids.classic", true)
 
