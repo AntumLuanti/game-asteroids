@@ -11,35 +11,6 @@ local rand = asteroids.rand
 local rand_thousandth = asteroids.rand_thousandth
 
 
-local game_paused = false
-local stored_velocities = {}
-asteroids.set_paused = function(pause)
-	if pause and not game_paused then
-		stored_velocities = {}
-		-- stop asteroids movement
-		for idx, ast in ipairs(active_asteroids) do
-			table.insert(stored_velocities, ast.object:get_velocity())
-			ast.object:set_velocity({x=0, y=0, z=0})
-		end
-	elseif not pause and game_paused then
-		-- restore asteroids movement
-		for idx, ast in ipairs(active_asteroids) do
-			local velo = stored_velocities[idx]
-			if velo then
-				ast.object:set_velocity(velo)
-			end
-		end
-		stored_velocities = {}
-	end
-
-	game_paused = pause
-end
-
-asteroids.is_paused = function()
-	return game_paused
-end
-
-
 --- Calculates direction between two points.
 --
 --  @param A
@@ -115,7 +86,7 @@ end
 
 
 core.register_globalstep(function(dtime)
-	if game_paused then
+	if asteroids.is_paused() then
 		return
 	end
 

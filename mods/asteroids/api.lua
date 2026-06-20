@@ -157,6 +157,48 @@ asteroids.can_spawn = function()
 end
 
 
+-- property determining if game is in paused state
+local game_paused = false
+-- velocities of the paused asteroids to be restored at unpause
+local stored_velocities = {}
+
+
+--- Sets the game's paused state.
+--
+--  @param pause
+--    `true` to pause, `false` to unpause.
+asteroids.set_paused = function(pause)
+	if pause and not game_paused then
+		stored_velocities = {}
+		-- stop asteroids movement
+		for idx, ast in ipairs(active_asteroids) do
+			table.insert(stored_velocities, ast.object:get_velocity())
+			ast.object:set_velocity({x=0, y=0, z=0})
+		end
+	elseif not pause and game_paused then
+		-- restore asteroids movement
+		for idx, ast in ipairs(active_asteroids) do
+			local velo = stored_velocities[idx]
+			if velo then
+				ast.object:set_velocity(velo)
+			end
+		end
+		stored_velocities = {}
+	end
+
+	game_paused = pause
+end
+
+
+--- Checks if game is in paused state.
+--
+--  @return
+--    `true` if game is paused.
+asteroids.is_paused = function()
+	return game_paused
+end
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
