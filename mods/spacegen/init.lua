@@ -46,20 +46,12 @@ core.register_globalstep(function(dtime)
 			-- only spawn large asteroids in classic gameplay
 			local a_size = asteroids.is_classic_gameplay() and "large" or a_sizes[rand:next(1, 3)]
 			local player = core.get_player_by_name("singleplayer")
-			local pos = player ~= nil and player:get_pos() or {x=0, y=0, z=0}
 
-			-- calculate to within 20 nodes (5 node min to prevent spawning on player)
-			pos.x = pos.x + math.max(5, rand:next(-20, 20))
-			pos.y = pos.y + math.max(5, rand:next(-20, 20))
-			pos.z = pos.z + math.max(5, rand:next(-20, 20))
-
-			local obj = core.add_entity(pos, "asteroids:"..a_type.."_"..a_size)
+			local obj = asteroids.spawn(player, {material=a_type, size=a_size})
 			if obj then
 				spawned = spawned + 1
 				-- DEBUG:
 				core.log("spawned asteroid "..spawned.." ("..a_type.."_"..a_size..")")
-			else
-				core.log("warning", "failed to spawn asteroid")
 			end
 		end
 	end
