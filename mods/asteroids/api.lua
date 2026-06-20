@@ -134,6 +134,20 @@ asteroids.set_on_destroyed = function(callback)
 end
 
 
+--- Clears game world of asteroids.
+asteroids.clear = function()
+	for idx = #active_asteroids, 1, -1 do
+		local ast = active_asteroids[idx]
+		ast.object:remove()
+		ast:on_removed()
+	end
+
+	if #active_asteroids ~= 0 then
+		core.log("error", "failed to remove "..#active_asteroids.." asteroids")
+	end
+end
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
