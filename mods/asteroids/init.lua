@@ -11,24 +11,6 @@ local rand = asteroids.rand
 local rand_thousandth = asteroids.rand_thousandth
 
 
---- Calculates distance between two positional vectors.
---
---  @param A
---    Vector of first point.
---  @param B
---    Vector of second point.
-local get_distance = function(A, B)
-	local dx = A.x - B.x
-	dx = dx * dx
-	local dy = A.y - B.y
-	dy = dy * dy
-	local dz = A.z - B.z
-	dz = dz * dz
-
-	return math.abs(math.sqrt(dx + dy + dz))
-end
-
-
 --- Creates a rate of rotation.
 --
 --  @return
