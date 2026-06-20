@@ -27,8 +27,8 @@ end)
 
 local spawned = 0
 
-local a_types = {"rock", "ice", "molten"}
-local a_sizes = {"small", "medium", "large"}
+local a_types = asteroids.get_materials()
+local a_sizes = asteroids.get_sizes()
 
 core.register_globalstep(function(dtime)
 	-- make light persist
