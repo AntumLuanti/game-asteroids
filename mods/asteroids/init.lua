@@ -31,6 +31,13 @@ local rand_thousandth = function(vmin, vmax)
 end
 
 
+-- make rand functions available globally
+asteroids.rand = function(vmin, vmax)
+	return rand:next(vmin, vmax)
+end
+asteroids.rand_thousandth = rand_thousandth
+
+
 --- Called when an asteroid is destroyed.
 --
 --  @param player
