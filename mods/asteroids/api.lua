@@ -225,6 +225,35 @@ asteroids.is_paused = function()
 end
 
 
+--- Spawns a new asteroid in vicinity of player.
+--
+--  @param player
+--    Active player.
+--  @param a_type
+--    Asteroid type definition.
+--  @param pos
+--    Position vector at which asteroid will be spawned. If omitted, will spawn near player.
+--  @return
+--    `ObjectRef` of spawned asteroid.
+asteroids.spawn = function(player, a_type, pos)
+	if pos == nil then
+		pos = player ~= nil and player:get_pos() or {x=0, y=0, z=0}
+
+		-- calculate to within 20 nodes (5 node min to prevent spawning on player)
+		pos.x = pos.x + math.max(5, rand:next(-20, 20))
+		pos.y = pos.y + math.max(5, rand:next(-20, 20))
+		pos.z = pos.z + math.max(5, rand:next(-20, 20))
+	end
+
+	local obj = core.add_entity(pos, "asteroids:"..a_type.material.."_"..a_type.size)
+	if not obj then
+		core.log("error", "failed to spawn asteroid")
+	end
+
+	return obj
+end
+
+
 --- Registers an asteroid.
 --
 --  @param a_type
