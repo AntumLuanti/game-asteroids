@@ -11,22 +11,6 @@ local rand = asteroids.rand
 local rand_thousandth = asteroids.rand_thousandth
 
 
---- Rotates an asteroid according to its rotation rate vector.
---
---  @param ref
---    Asteroid `ObjectRef` to be rotated.
-local rotate_step = function(ref)
-	-- object's current rotation
-	local rot = ref.object:get_rotation()
-	for k, v in pairs(ref.rot_rate) do
-		-- update axis rotation from rotation rate vector
-		rot[k] = rot[k] + v
-	end
-	-- apply new rotation to asteroid
-	ref.object:set_rotation(rot)
-end
-
-
 -- node radius of gameplay boundaries
 local gameplay_radius = 50
 
