@@ -24,7 +24,7 @@ core.register_globalstep(function(dtime)
 	end
 
 	local hit = false
-	for _, ref in pairs(active_asteroids) do
+	for _, ref in pairs(asteroids.get_active()) do
 		local pos = ref.object:get_pos()
 		for _, t in pairs(core.get_objects_inside_radius(pos, 1)) do
 			if t:is_player() then

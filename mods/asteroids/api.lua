@@ -237,6 +237,15 @@ asteroids.get_sizes = function()
 end
 
 
+--- Retrieves a list of currently active asteroids.
+--
+--  @return
+--    Asteroids in play.
+asteroids.get_active = function()
+	return active_asteroids
+end
+
+
 --- Spawns a new asteroid in vicinity of player.
 --
 --  @param player
