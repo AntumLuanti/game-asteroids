@@ -43,6 +43,9 @@ end
 local player = nil
 local player_input = nil
 
+local asteroids_per_level = {
+	[1] = 4
+}
 
 --- Initializes player with default values.
 local on_start = function()
@@ -60,6 +63,18 @@ local on_start = function()
 	meta:set_int("score", 0)
 
 	update_score_hud(player)
+
+	if not asteroids.is_classic_gameplay() then
+		return
+	end
+
+	local a_materials = asteroids.get_materials()
+	-- TODO: get current game level
+	for x = 1, asteroids_per_level[1], 1 do
+		local m = a_materials[asteroids.rand(1, #a_materials)]
+		local s = "large"
+		asteroids.spawn(player or core.get_player_by_name("singleplayer"), {material=m, size=s})
+	end
 end
 
 
