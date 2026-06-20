@@ -30,6 +30,40 @@ local spawned = 0
 local a_types = asteroids.get_materials()
 local a_sizes = asteroids.get_sizes()
 
+
+-- temporary reference to active player
+local player_ref
+
+
+--- Callback to spawn asteroids when player spawns.
+--
+--  @param dtime
+--    Time since last globalstep.
+local on_first_step
+on_first_step = function(dtime)
+	-- TODO: spawn asteroids for game level
+
+	for idx, func in ipairs(core.registered_globalsteps) do
+		if func == on_first_step then
+			table.remove(core.registered_globalsteps, idx)
+			break
+		end
+	end
+
+	player_ref = nil
+end
+
+
+--- Sets a temporary globalstep callback to spawn asteroids.
+--
+--  @param player
+--    The player for whom asteroids are being spawned.
+asteroids.init_classic_spawn = function(player)
+	player_ref = player
+	core.register_globalstep(on_first_step)
+end
+
+
 core.register_globalstep(function(dtime)
 	-- make light persist
 	core.set_timeofday(0.5)
