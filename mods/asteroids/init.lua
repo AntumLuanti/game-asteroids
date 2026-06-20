@@ -4,17 +4,8 @@ asteroids = {
 }
 asteroids.modpath = core.get_modpath(asteroids.modname)
 
+dofile(asteroids.modpath.."/api.lua")
 
--- determines if rules resembling classic gameplay should be used
-local classic_gameplay = core.settings:get_bool("asteroids.classic", true)
-
---- Retrieves classic gameplay state.
---
---  @return
---    `true` if classic gameplay rules are in effect.
-asteroids.is_classic_gameplay = function()
-	return classic_gameplay
-end
 
 
 local rand = PcgRandom(core.get_us_time())
@@ -266,6 +257,7 @@ local register_asteroid = function(a_type, a_size)
 	local hp = 0
 	local size = 0
 	local point_value = 1
+	local classic_gameplay = asteroids.is_classic_gameplay()
 	if a_size == "small" then
 		hp = classic_gameplay and 1 or 3
 		size = 0.5
