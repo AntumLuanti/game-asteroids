@@ -34,7 +34,7 @@ core.register_globalstep(function(dtime)
 	-- make light persist
 	core.set_timeofday(0.5)
 
-	if asteroids.is_paused() then
+	if asteroids.is_paused() or asteroids.is_classic_gameplay() then
 		return
 	end
 
@@ -43,8 +43,7 @@ core.register_globalstep(function(dtime)
 		if rand:next(1, 10) == 1 then
 			time_ms = step_time
 			local a_type = a_types[rand:next(1, 3)]
-			-- only spawn large asteroids in classic gameplay
-			local a_size = asteroids.is_classic_gameplay() and "large" or a_sizes[rand:next(1, 3)]
+			local a_size = a_sizes[rand:next(1, 3)]
 			local player = core.get_player_by_name("singleplayer")
 
 			local obj = asteroids.spawn(player, {material=a_type, size=a_size})
