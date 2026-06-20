@@ -148,6 +148,15 @@ asteroids.clear = function()
 end
 
 
+--- Checks if spawning a new asteroid should be allowed.
+--
+--  @return
+--    `true` if number of active asteroids doesn't meet limit.
+asteroids.can_spawn = function()
+	return #active_asteroids < active_limit
+end
+
+
 --- Registers an asteroid.
 --
 --  @param a_type

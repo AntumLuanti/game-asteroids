@@ -11,15 +11,6 @@ local rand = asteroids.rand
 local rand_thousandth = asteroids.rand_thousandth
 
 
---- Checks if spawning a new asteroid should be allowed.
---
---  @return
---    `true` if number of active asteroids doesn't meet limit.
-asteroids.can_spawn = function()
-	return #active_asteroids < active_limit
-end
-
-
 local game_paused = false
 local stored_velocities = {}
 asteroids.set_paused = function(pause)
