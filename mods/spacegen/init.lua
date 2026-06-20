@@ -46,10 +46,15 @@ local player_ref
 --    Time since last globalstep.
 local on_first_step
 on_first_step = function(dtime)
-	-- TODO: spawn asteroids for game level
+	for x = 1, asteroids_per_level[1], 1 do
+		local a_material = a_types[rand:next(1, #a_types)]
+		-- FIXME: not working
+		asteroids.spawn(player_ref, {material=a_material, size="large"})
+	end
 
 	for idx, func in ipairs(core.registered_globalsteps) do
 		if func == on_first_step then
+			-- deregister callback so not called on later steps
 			table.remove(core.registered_globalsteps, idx)
 			break
 		end
