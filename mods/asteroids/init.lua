@@ -11,18 +11,6 @@ local rand = asteroids.rand
 local rand_thousandth = asteroids.rand_thousandth
 
 
---- Retrieves available asteroid materials.
-asteroids.get_materials = function()
-	return {"rock", "ice", "molten"}
-end
-
-
---- Retrieves available asteroid sizes.
-asteroids.get_sizes = function()
-	return {"small", "medium", "large"}
-end
-
-
 for _, a_type in pairs(asteroids.get_materials()) do
 	for _, a_size in pairs(asteroids.get_sizes()) do
 		register_asteroid(a_type, a_size)

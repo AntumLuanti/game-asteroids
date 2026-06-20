@@ -225,6 +225,18 @@ asteroids.is_paused = function()
 end
 
 
+--- Retrieves available asteroid materials.
+asteroids.get_materials = function()
+	return {"rock", "ice", "molten"}
+end
+
+
+--- Retrieves available asteroid sizes.
+asteroids.get_sizes = function()
+	return {"small", "medium", "large"}
+end
+
+
 --- Spawns a new asteroid in vicinity of player.
 --
 --  @param player
