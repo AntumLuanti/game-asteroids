@@ -46,8 +46,6 @@ local player_input = nil
 
 --- Initializes player with default values.
 local on_start = function()
-	-- TODO: clear asteroids
-
 	player:set_pos({x=0, y=0, z=0})
 	player:set_look_horizontal(0)
 	player:set_look_vertical(0)
