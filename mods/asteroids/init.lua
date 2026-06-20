@@ -29,28 +29,6 @@ end
 asteroids.rand_thousandth = rand_thousandth
 
 
---- Called when an asteroid is destroyed.
---
---  @param player
---    Player that destroyed asteroid.
---  @param points
---    Number of points to be awarded to player.
-local on_destroyed = nil
-
-
---- Function to set callback for when an asteroid is destroyed.
---
---  @param callback
---    Function to be called with parameters `player` & `points`.
-asteroids.set_on_destroyed = function(callback)
-	if type(callback) == "function" then
-		on_destroyed = callback
-	else
-		core.log("warning", "asteroid on_destroyed callback must be a function")
-	end
-end
-
-
 --- Retrieves system time.
 --
 --  @return
