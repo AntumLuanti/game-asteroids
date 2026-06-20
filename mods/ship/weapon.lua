@@ -1,13 +1,15 @@
 
 core.register_entity("asteroids_ship:projectile", {
-	physical = true,
-	collide_with_objects = false,
-	collisionbox = {-0.125, -0.125, -0.125, 0.125, 0.125, 0.125},
-	pointable = false,
-	visual = "sprite",
-	visual_size = {x=0.25, y=0.25, z=0.25},
-	textures = {"asteroids_ship_projectile.png"},
-	static_save = false
+	initial_properties = {
+		physical = true,
+		collide_with_objects = false,
+		collisionbox = {-0.125, -0.125, -0.125, 0.125, 0.125, 0.125},
+		pointable = false,
+		visual = "sprite",
+		visual_size = {x=0.25, y=0.25, z=0.25},
+		textures = {"asteroids_ship_projectile.png"},
+		static_save = false
+	}
 })
 
 local projectiles = {}
