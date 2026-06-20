@@ -249,7 +249,7 @@ end
 --    `ObjectRef` of spawned asteroid.
 asteroids.spawn = function(player, a_type, pos)
 	if pos == nil then
-		pos = player ~= nil and player:get_pos() or {x=0, y=0, z=0}
+		pos = player ~= nil and player:get_pos() or gameplay_center
 
 		-- calculate to within 20 nodes (5 node min to prevent spawning on player)
 		pos.x = pos.x + math.max(5, rand:next(-20, 20))
