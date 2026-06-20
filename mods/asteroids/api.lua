@@ -1,4 +1,20 @@
 
+-- node radius of gameplay boundaries
+local gameplay_radius = 50
+
+-- positional center of gameplay boundaries
+local gameplay_center = {x=0, y=0, z=0}
+
+-- maxium age of asteroids in minutes
+local age_limit_minutes = 5
+
+-- list of active asteroids
+local active_asteroids = {}
+
+-- max limit of number of active asteroids
+local active_limit = 20
+
+
 --- Retrieves system time.
 --
 --  @return
