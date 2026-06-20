@@ -60,16 +60,8 @@ local on_start = function()
 
 	update_score_hud(player)
 
-	if not asteroids.is_classic_gameplay() then
-		return
-	end
-
-	local a_materials = asteroids.get_materials()
-	-- TODO: get current game level
-	for x = 1, asteroids_per_level[1], 1 do
-		local m = a_materials[asteroids.rand(1, #a_materials)]
-		local s = "large"
-		asteroids.spawn(player or core.get_player_by_name("singleplayer"), {material=m, size=s})
+	if asteroids.is_classic_gameplay() then
+		asteroids.init_classic_spawn(player)
 	end
 end
 
