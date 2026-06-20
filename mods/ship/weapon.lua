@@ -54,7 +54,7 @@ core.register_globalstep(function(dtime)
 
 	local step_time = getTimeMS()
 	for idx = #projectiles, 1, -1 do
-		proj = projectiles[idx]
+		local proj = projectiles[idx]
 
 		local pos = proj.obj:get_pos()
 		local targets = core.get_objects_inside_radius(pos, 1)
