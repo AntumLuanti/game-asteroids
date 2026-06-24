@@ -13,6 +13,5 @@ globals = {
 }
 
 read_globals = {
-	-- built-in
 	"PcgRandom"
 }
