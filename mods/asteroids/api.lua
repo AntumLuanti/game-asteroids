@@ -127,7 +127,7 @@ end
 
 
 -- determines if rules resembling classic gameplay should be used
-local classic_gameplay = core.settings:get_bool("asteroids.classic", true)
+local classic_gameplay = core.settings:get_bool("asteroids.classic", false)
 
 --- Retrieves classic gameplay state.
 --

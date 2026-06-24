@@ -21,3 +21,4 @@ TODO:
 - use separate high scores for gameplay modes
 - set ship visual pitch & yaw with camera angle
 - create models for asteroids
+- make classic default mode when fixed
