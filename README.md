@@ -29,14 +29,28 @@ See [LICENSE.md](LICENSE.md) for information on media licensing &amp; sources.
 
 ## Links
 
-- [ContentDB](https://content.luanti.org/packages/AntumDeluge/asteroids/)
-- [Forum](https://forum.luanti.org/viewtopic.php?t=32557)
-- Git Mirrors:
-    - [Codeberg](https://codeberg.org/AntumLuanti/game-asteroids)
-    - [GitHub](https://github.com/AntumLuanti/game-asteroids)
-    - [GitLab](https://gitlab.com/AntumLuanti/game-asteroids)
-- [Changelog](changelog.txt)
-- [TODO](TODO.txt)
+- [![shield.ContentDB]][ContentDB]
+- [![shield.forum]][forum]
+- Git Repo Mirrors:
+    - [![shield.Codeberg]][Codeberg]
+    - [![shield.GitHub]][GitHub]
+    - [![shield.GitLab]][GitLab]
+- [![shield.changelog]](changelog.txt)
+- [![shield.todo]](TODO.txt)
 
 
 [Luanti]: https://www.luanti.org/
+
+[ContentDB]: https://content.luanti.org/packages/AntumDeluge/asteroids/
+[shield.ContentDB]: https://img.shields.io/static/v1?label=&message=ContentDB&color=%23375a7f&logo=luanti
+[forum]: https://forum.luanti.org/viewtopic.php?t=32557
+[shield.forum]: https://img.shields.io/static/v1?label=&message=Forum&color=%23375a7f&logo=luanti
+[Codeberg]: https://codeberg.org/AntumLuanti/game-asteroids
+[shield.Codeberg]: https://img.shields.io/static/v1?label=&message=Codeberg&color=%23375a7f&logo=codeberg
+[GitHub]: https://github.com/AntumLuanti/game-asteroids
+[shield.GitHub]: https://img.shields.io/static/v1?label=&message=GitHub&color=%23375a7f&logo=github
+[GitLab]: https://gitlab.com/AntumLuanti/game-asteroids
+[shield.GitLab]: https://img.shields.io/static/v1?label=&message=GitLab&color=%23375a7f&logo=gitlab
+
+[shield.changelog]: https://img.shields.io/static/v1?label=&message=Changelog&color=%23375a7f&logo=Git
+[shield.todo]: https://img.shields.io/static/v1?label=&message=TODO%20List&color=%23375a7f&logo=Git
