@@ -23,7 +23,7 @@ __Objective:__ Destroy asteroids to score points while avoiding being hit.
 
 ## Licensing
 
-__Code:__ [MIT](LICENSE.txt)
+__Code:__ [MIT](LICENSE-code.txt)
 
 __Textures:__
 
