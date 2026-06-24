@@ -22,3 +22,4 @@ TODO:
 - set ship visual pitch & yaw with camera angle
 - create models for asteroids
 - make classic default mode when fixed
+- change classic gameplay setting to enum
