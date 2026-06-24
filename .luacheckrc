@@ -1,5 +1,7 @@
 
 
+std = "lua51"
+
 ignore = {
 	"212", -- unused argument
 	"231", -- variable 'x' is never accessed
