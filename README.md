@@ -25,28 +25,7 @@ __Objective:__ Destroy asteroids to score points while avoiding being hit.
 
 __Code:__ [MIT](LICENSE-code.txt)
 
-__Textures:__
-
-So far everything here is [CC0]. But more textures will be added in the future.
-
-__Sounds:__
-
-- menu theme &amp; asteroids_hit
-    - [CC0]
-    - author: ColinSc
-    - [link](https://freesound.org/s/546762/)
-- asteroids_ship_engine
-    - [CC0]
-    - author: theMinesAreShakin
-    - [link](https://opengameart.org/node/170392)
-- asteroids_ship_explosion
-    - [CC0]
-    - author: Rick Hoppmann (TinyWorlds)
-    - [link](https://opengameart.org/node/33778)
-- asteroids_ship_shoot
-    - [CC BY 3.0]
-    - author: dklon
-    - [link](https://opengameart.org/node/6882)
+See [LICENSE.md](LICENSE.md) for information on media licensing &amp; sources.
 
 ## Links
 
@@ -61,6 +40,3 @@ __Sounds:__
 
 
 [Luanti]: https://www.luanti.org/
-
-[CC BY 3.0]: https://creativecommons.org/licenses/by/3.0/
-[CC0]: https://creativecommons.org/publicdomain/zero/1.0/
