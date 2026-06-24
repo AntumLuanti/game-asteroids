@@ -1,3 +1,7 @@
 
-# Determines if rules resembling classic gameplay should be used.
-asteroids.classic (Classic Asteroids) bool false
+# Determines gameplay mode ruleset.
+#
+# Modes:
+# - classic: Use ruleset similar to the classic Asteroids arcade game.
+# - endless: Asteroids absorb multiple hits & gameplay is "endless" without levels.
+asteroids.mode (Gameplay Mode) enum endless classic,endless
