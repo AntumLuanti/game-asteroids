@@ -12,3 +12,5 @@ jobs:
 
       - name: Luacheck Linter
         uses: lunarmodules/luacheck@v1
+        with:
+          args: --codes .
