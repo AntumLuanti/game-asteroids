@@ -1,4 +1,12 @@
 
+0.2-wip
+-------
+- fixes for ContentDB inclusion policy
+- Luacheck warning fixes
+- began work on classic gameplay mode
+- changed point values to match original Asteroids game
+
+
 0.1-wip
 -------
 - initial WIP release
