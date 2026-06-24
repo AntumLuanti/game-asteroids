@@ -7,6 +7,9 @@
 An attempt at making an Asteroids game for [Luanti]. It is working enough to be considered a
 proof-of-concept. But it's very buggy.
 
+___Note:__ There is a classic gameplay mode, which will eventually be the default mode. But it is
+currently completely broken._
+
 Video demo: https://youtu.be/8d2IdKHrvcE
 
 ## Gameplay
