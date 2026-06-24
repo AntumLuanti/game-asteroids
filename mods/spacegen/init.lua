@@ -46,7 +46,7 @@ local player_ref
 --    Time since last globalstep.
 local on_first_step
 on_first_step = function(dtime)
-	for x = 1, asteroids_per_level[1], 1 do
+	for _ = 1, asteroids_per_level[1], 1 do
 		local a_material = a_types[rand:next(1, #a_types)]
 		-- FIXME: not working
 		asteroids.spawn(player_ref, {material=a_material, size="large"})

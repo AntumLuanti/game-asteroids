@@ -197,7 +197,7 @@ asteroids.set_paused = function(pause)
 	if pause and not game_paused then
 		stored_velocities = {}
 		-- stop asteroids movement
-		for idx, ast in ipairs(active_asteroids) do
+		for _, ast in ipairs(active_asteroids) do
 			table.insert(stored_velocities, ast.object:get_velocity())
 			ast.object:set_velocity({x=0, y=0, z=0})
 		end
@@ -458,8 +458,8 @@ local register_asteroid = function(a_type, a_size)
 			end
 
 			if classic_gameplay then
-				local a_type = self:get_type()
-				if a_type.size == "large" then
+				local ast_type = self:get_type()
+				if ast_type.size == "large" then
 					local pos = self.object:get_pos()
 					-- replace with two medium asteroids
 					for idx = 1, 2, 1 do
@@ -470,14 +470,14 @@ local register_asteroid = function(a_type, a_size)
 						else
 							o_pos.x = pos.x - 0.75
 						end
-						local obj = core.add_entity(o_pos, "asteroids:"..a_type.material.."_medium")
+						local obj = core.add_entity(o_pos, "asteroids:"..ast_type.material.."_medium")
 						if not obj then
 							core.log("error", "failed to add asteroids to game")
 						end
 					end
-				elseif a_type.size == "medium" then
+				elseif ast_type.size == "medium" then
 					-- replace with single small asteroid
-					local obj = core.add_entity(self.object:get_pos(), "asteroids:"..a_type.material
+					local obj = core.add_entity(self.object:get_pos(), "asteroids:"..ast_type.material
 							.."_small")
 					if not obj then
 						core.log("error", "failed to add asteroids to game")

@@ -54,7 +54,7 @@ local on_start = function()
 		meta:set_int("high score", 0)
 	end
 	-- TODO: display this in HUD?
-	local prev_score = meta:get_int("score") or 0
+	--~ local prev_score = meta:get_int("score") or 0
 	-- reset score for new game
 	meta:set_int("score", 0)
 
@@ -153,23 +153,23 @@ core.register_on_dieplayer(function(player_ref, reason)
 end)
 
 -- callback when an asteroid is destroyed
-asteroids.set_on_destroyed(function(player, points)
-	if player == nil then
-		player = core.get_player_by_name("singleplayer")
+asteroids.set_on_destroyed(function(player_ref, points)
+	if player_ref == nil then
+		player_ref = core.get_player_by_name("singleplayer")
 	end
 
-	if player == nil then
+	if player_ref == nil then
 		core.log("warning", "cannot award points to nil player")
 		return
 	end
 
-	local meta = player:get_meta()
+	local meta = player_ref:get_meta()
 	points = meta:get_int("score") + points
 	meta:set_int("score", points)
 	if points > meta:get_int("high score") then
 		meta:set_int("high score", points)
 	end
-	update_score_hud(player)
+	update_score_hud(player_ref)
 end)
 
 
@@ -217,7 +217,7 @@ local logic = function()
 	local input = player:get_player_control()
 	local input_changed = false
 
-	for k, v in pairs(input) do
+	for k, _ in pairs(input) do
 		if input[k] ~= player_input[k] then
 			input_changed = true
 			ship_controls:handle_input_change(input)
