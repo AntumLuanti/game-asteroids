@@ -57,3 +57,8 @@ See [LICENSE.md](LICENSE.md) for information on media licensing &amp; sources.
 
 [shield.changelog]: https://img.shields.io/static/v1?label=&message=Changelog&color=%23375a7f&logo=Git
 [shield.todo]: https://img.shields.io/static/v1?label=&message=TODO%20List&color=%23375a7f&logo=Git
+
+<!--
+[]: https://content.luanti.org/packages//
+[shield.]: https://img.shields.io/static/v1?label=&message=by%20&color=%23375a7f&logo=luanti
+-->
