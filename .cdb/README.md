@@ -1,6 +1,8 @@
 ## Description
 
-An attempt at making an Asteroids game. It is working enough to be considered a proof-of-concept. But it's very buggy.
+An attempt at making an Asteroids game. It is working enough to be considered a proof-of-concept.
+
+___WARNING:__ Game is in early development. It is very buggy._
 
 ___Note:__ There is a classic gameplay mode, which will eventually be the default mode. But it is currently completely broken._
 
