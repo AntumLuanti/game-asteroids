@@ -13,8 +13,6 @@ TODO:
 - fix asteroids only spawning on one side of player
 - increase difficulty with time
 - show minimap by default
-- update ship model
-- redo ship texture
 - in classic mode asteroids should be spawned at startup
 - increment level in classic mode when all asteroids destroyed
 - fix asteroids spawning in classic mode
