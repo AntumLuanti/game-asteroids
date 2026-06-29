@@ -5,3 +5,6 @@
 # - classic: Use ruleset similar to the classic Asteroids arcade game.
 # - endless: Asteroids absorb multiple hits & gameplay is "endless" without levels.
 asteroids.mode (Gameplay Mode) enum endless classic,endless
+
+# Enable or disable Asteroids "heartbeat" theme.
+asteroids.heartbeat (Asteroids Music) bool true

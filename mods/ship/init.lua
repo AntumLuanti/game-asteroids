@@ -43,6 +43,8 @@ end
 local player = nil
 local player_input = nil
 
+local heartbeat_handle
+
 --- Initializes player with default values.
 local on_start = function()
 	player:set_pos({x=0, y=0, z=0})
@@ -59,6 +61,10 @@ local on_start = function()
 	meta:set_int("score", 0)
 
 	update_score_hud(player)
+
+	if core.settings:get_bool("asteroids.heartbeat", true) and heartbeat_handle == nil then
+		heartbeat_handle = core.sound_play("asteroids_heartbeat_slow", {toplayer="singleplayer", loop=true})
+	end
 
 	if asteroids.is_classic_gameplay() then
 		asteroids.init_classic_spawn(player)
@@ -112,6 +118,10 @@ end)
 
 
 core.register_on_dieplayer(function(player_ref, reason)
+	if heartbeat_handle ~= nil then
+		core.sound_stop(heartbeat_handle)
+		heartbeat_handle = nil
+	end
 	core.sound_play({name="asteroids_ship_explosion"})
 end)
 
