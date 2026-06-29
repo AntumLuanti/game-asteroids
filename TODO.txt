@@ -28,7 +28,7 @@ TODO:
   - 100 ms
   - starting
     - 55-60 BPM
-		- pause 1.0-1.1 seconds
+    - pause 1.0-1.1 seconds
   - peak
     - 140-150 BPM
     - pause 0.4 seconds
