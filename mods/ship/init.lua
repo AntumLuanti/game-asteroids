@@ -40,13 +40,12 @@ local update_score_hud = function(player)
 end
 
 
-local player = nil
 local player_input = nil
 
 local heartbeat_handle
 
 --- Initializes player with default values.
-local on_start = function()
+local on_start = function(player)
 	player:set_pos({x=0, y=0, z=0})
 	player:set_look_horizontal(0)
 	player:set_look_vertical(0)
@@ -72,8 +71,7 @@ local on_start = function()
 end
 
 
-core.register_on_joinplayer(function(player_ref, last_login)
-	player = player_ref
+core.register_on_joinplayer(function(player, last_login)
 	player_input = player:get_player_control()
 	player:set_physics_override({
 		speed = 0,
@@ -113,11 +111,11 @@ core.register_on_joinplayer(function(player_ref, last_login)
 	props.hp_max = 1
 	player:set_properties(props)
 
-	on_start()
+	on_start(player)
 end)
 
 
-core.register_on_dieplayer(function(player_ref, reason)
+core.register_on_dieplayer(function(player, reason)
 	if heartbeat_handle ~= nil then
 		core.sound_stop(heartbeat_handle)
 		heartbeat_handle = nil
@@ -126,21 +124,21 @@ core.register_on_dieplayer(function(player_ref, reason)
 end)
 
 
-core.register_on_respawnplayer(function(player_ref)
+core.register_on_respawnplayer(function(player)
 	asteroids.clear()
 	asteroids.set_paused(false)
-	on_start()
+	on_start(player)
 end)
 
 
-core.register_on_player_receive_fields(function(player_ref, formname, fields)
+core.register_on_player_receive_fields(function(player, formname, fields)
 	if formname == "death" then
-		core.close_formspec(player_ref:get_player_name(), formname)
+		core.close_formspec(player:get_player_name(), formname)
 		if fields.respawn then
-			player_ref:respawn()
+			player:respawn()
 		elseif fields.quit then
 			-- reset hp to prevent death formspec displaying at next startup
-			player_ref:set_hp(player_ref:get_properties().hp_max)
+			player:set_hp(player:get_properties().hp_max)
 			core.request_shutdown()
 		end
 	end
@@ -154,32 +152,30 @@ button[1,0.5;3,2;respawn;Try Again]\
 button[5,0.5;3,2;quit;Quit]\
 "
 
-core.show_death_screen = function(player_ref, reason)
-	core.show_formspec(player_ref:get_player_name(), "death", death_formspec)
+core.show_death_screen = function(player, reason)
+	core.show_formspec(player:get_player_name(), "death", death_formspec)
 end
 
-core.register_on_dieplayer(function(player_ref, reason)
+core.register_on_dieplayer(function(player, reason)
 	asteroids.set_paused(true)
 end)
 
 -- callback when an asteroid is destroyed
-asteroids.set_on_destroyed(function(player_ref, points)
-	if player_ref == nil then
-		player_ref = core.get_player_by_name("singleplayer")
-	end
+asteroids.set_on_destroyed(function(player, points)
+	player = player or core.get_player_by_name("singleplayer")
 
-	if player_ref == nil then
+	if player == nil then
 		core.log("warning", "cannot award points to nil player")
 		return
 	end
 
-	local meta = player_ref:get_meta()
+	local meta = player:get_meta()
 	points = meta:get_int("score") + points
 	meta:set_int("score", points)
 	if points > meta:get_int("high score") then
 		meta:set_int("high score", points)
 	end
-	update_score_hud(player_ref)
+	update_score_hud(player)
 end)
 
 
@@ -206,7 +202,7 @@ local ship_controls = {
 		end
 	end,
 
-	update_velocity = function(self)
+	update_velocity = function(self, player)
 		-- TODO: ship should "coast" after boost
 		if self.boosting then
 			-- FIXME: there is some jittering during boost when changing look direction due to client updating before receiving response
@@ -218,11 +214,12 @@ local ship_controls = {
 }
 
 local logic = function()
+	local player = core.get_player_by_name("singleplayer")
 	if not player then
 		return
 	end
 
-	ship_controls:update_velocity()
+	ship_controls:update_velocity(player)
 
 	local input = player:get_player_control()
 	local input_changed = false
