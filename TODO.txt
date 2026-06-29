@@ -22,13 +22,4 @@ TODO:
 - make classic default mode when fixed
 - hyperspace teleport
 - lives
-- add "heartbeat"
-  - low ~37 Hz
-  - hight ~54 Hz
-  - 100 ms
-  - starting
-    - 55-60 BPM
-    - pause 1.0-1.1 seconds
-  - peak
-    - 140-150 BPM
-    - pause 0.4 seconds
+- player faster heartbeat as player advances
