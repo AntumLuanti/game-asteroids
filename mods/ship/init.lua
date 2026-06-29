@@ -62,7 +62,7 @@ local on_start = function(player)
 	update_score_hud(player)
 
 	if core.settings:get_bool("asteroids.heartbeat", true) and heartbeat_handle == nil then
-		heartbeat_handle = core.sound_play("asteroids_heartbeat_slow", {toplayer="singleplayer", loop=true})
+		heartbeat_handle = core.sound_play("asteroids_heartbeat_60bpm", {toplayer="singleplayer", loop=true})
 	end
 
 	if asteroids.is_classic_gameplay() then

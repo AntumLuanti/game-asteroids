@@ -29,7 +29,7 @@ So far everything here is [CC0]. But more textures will be added in the future.
     - [CC BY 3.0]
     - author: dklon
     - [link](https://opengameart.org/node/6882)
-- [asteroids_heartbeat_slow](mods/asteroids/sounds/asteroids_heartbeat_slow.ogg)
+- [asteroids_heartbeat](mods/asteroids/sounds/asteroids_heartbeat_60bpm.ogg)
     - [CC0]
     - author: Jordan Irwin (AntumDeluge)
 
