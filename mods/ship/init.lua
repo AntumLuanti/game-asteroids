@@ -77,11 +77,11 @@ core.register_on_joinplayer(function(player_ref, last_login)
 	player_input = player:get_player_control()
 	player:set_physics_override({
 		speed = 0,
-		jump = 0
+		jump = 0,
+		-- make player fly
+		gravity = 0
 	})
 
-	-- make player fly
-	player:set_physics_override({gravity=0})
 	-- disable sun, moon, & clouds
 	player:set_sun({visible=false, sunrise_visible=false})
 	player:set_moon({visible=false})
