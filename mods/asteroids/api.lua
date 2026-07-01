@@ -177,6 +177,8 @@ asteroids.reset = function()
 	if #active_asteroids ~= 0 then
 		core.log("error", "failed to remove "..#active_asteroids.." asteroids")
 	end
+
+	asteroids.game_time = 0
 end
 
 

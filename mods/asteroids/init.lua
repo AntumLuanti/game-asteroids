@@ -12,3 +12,15 @@ for _, a_type in pairs(asteroids.get_materials()) do
 		register_asteroid(a_type, a_size)
 	end
 end
+
+
+--- Current game duration.
+asteroids.game_time = 0
+
+core.register_globalstep(function(dtime)
+	if asteroids.is_paused() then
+		return
+	end
+
+	asteroids.game_time = asteroids.game_time + dtime
+end)
