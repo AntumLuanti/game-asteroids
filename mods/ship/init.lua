@@ -65,6 +65,8 @@ local on_start = function(player)
 		heartbeat_handle = core.sound_play("asteroids_heartbeat_60bpm", {toplayer="singleplayer", loop=true})
 	end
 
+	asteroids.set_paused(false)
+
 	if asteroids.is_classic_gameplay() then
 		asteroids.init_classic_spawn(player)
 	end
@@ -126,7 +128,6 @@ end)
 
 core.register_on_respawnplayer(function(player)
 	asteroids.reset()
-	asteroids.set_paused(false)
 	on_start(player)
 end)
 

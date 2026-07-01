@@ -192,7 +192,7 @@ end
 
 
 -- property determining if game is in paused state
-local game_paused = false
+local game_paused = true
 -- velocities of the paused asteroids to be restored at unpause
 local stored_velocities = {}
 
