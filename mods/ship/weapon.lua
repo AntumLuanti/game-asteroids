@@ -14,15 +14,11 @@ core.register_entity("asteroids_ship:projectile", {
 
 local projectiles = {}
 
-local getTimeMS = function()
-	return math.floor(core.get_us_time() / 1000)
-end
-
 local shoot = function(itemstack, user, pointed)
 	core.sound_play({name="asteroids_ship_shoot"})
 
 	if user then
-		local fire_time = getTimeMS()
+		local fire_time = asteroids.get_time_ms()
 		local speed = 40
 		local upos = user:get_pos()
 		local ulook = user:get_look_dir()
@@ -52,7 +48,7 @@ core.register_globalstep(function(dtime)
 		return
 	end
 
-	local step_time = getTimeMS()
+	local step_time = asteroids.get_time_ms()
 	for idx = #projectiles, 1, -1 do
 		local proj = projectiles[idx]
 

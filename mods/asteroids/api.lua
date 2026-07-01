@@ -22,6 +22,7 @@ local active_limit = 20
 local get_time_ms = function()
 	return math.floor(core.get_us_time() / 1000)
 end
+asteroids.get_time_ms = get_time_ms
 
 
 --- Calculates distance between two positional vectors.
