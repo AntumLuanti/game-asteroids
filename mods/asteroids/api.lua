@@ -166,8 +166,8 @@ asteroids.set_on_destroyed = function(callback)
 end
 
 
---- Clears game world of asteroids.
-asteroids.clear = function()
+--- Clears game world of asteroids & resets game time.
+asteroids.reset = function()
 	for idx = #active_asteroids, 1, -1 do
 		local ast = active_asteroids[idx]
 		ast.object:remove()

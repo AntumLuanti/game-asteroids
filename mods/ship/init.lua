@@ -125,7 +125,7 @@ end)
 
 
 core.register_on_respawnplayer(function(player)
-	asteroids.clear()
+	asteroids.reset()
 	asteroids.set_paused(false)
 	on_start(player)
 end)
