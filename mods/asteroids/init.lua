@@ -12,29 +12,3 @@ for _, a_type in pairs(asteroids.get_materials()) do
 		register_asteroid(a_type, a_size)
 	end
 end
-
-
-core.register_globalstep(function(dtime)
-	if asteroids.is_paused() then
-		return
-	end
-
-	local hit = false
-	for _, ref in pairs(asteroids.get_active()) do
-		local pos = ref.object:get_pos()
-		if pos ~= nil then
-			for _, t in pairs(core.get_objects_inside_radius(pos, 1)) do
-				if t:is_player() then
-					-- TODO: play sound
-					t:set_hp(0)
-					hit = true
-					break
-				end
-			end
-		end
-
-		if hit then
-			break
-		end
-	end
-end)

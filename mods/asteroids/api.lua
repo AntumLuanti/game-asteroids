@@ -453,6 +453,14 @@ local register_asteroid = function(a_type, a_size)
 
 			-- update asteroid's angle of rotation
 			rotate_step(self)
+
+			if moveresult.collides then
+				for _, t in pairs(moveresult.collisions) do
+					if t.object and t.object:is_player() then
+						t.object:set_hp(0)
+					end
+				end
+			end
 		end,
 
 
