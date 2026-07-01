@@ -68,7 +68,7 @@ core.register_globalstep(function(dtime)
 			end
 		end
 
-		if step_time - proj.birth >= 2000 then
+		if proj.obj:is_valid() and step_time - proj.birth >= 2 then
 			-- remove projectile from world
 			proj.obj:remove()
 			table.remove(projectiles, idx)
