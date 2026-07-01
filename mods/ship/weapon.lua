@@ -18,7 +18,7 @@ local shoot = function(itemstack, user, pointed)
 	core.sound_play({name="asteroids_ship_shoot"})
 
 	if user then
-		local fire_time = asteroids.get_time_ms()
+		local fire_time = asteroids.game_time
 		local speed = 40
 		local upos = user:get_pos()
 		local ulook = user:get_look_dir()
@@ -29,7 +29,7 @@ local shoot = function(itemstack, user, pointed)
 			obj:set_velocity({x=ulook.x*speed, y=ulook.y*speed, z=ulook.z*speed})
 			table.insert(projectiles, {obj=obj, birth=fire_time})
 		else
-			core.log("error", "failed to create projectile at system time "..fire_time.."ms")
+			core.log("error", "failed to create projectile at game time "..fire_time.."s")
 		end
 	end
 end
@@ -44,11 +44,10 @@ core.override_item("", {
 
 core.register_globalstep(function(dtime)
 	if asteroids.is_paused() then
-		-- FIXME: projectiles still age
 		return
 	end
 
-	local step_time = asteroids.get_time_ms()
+	local step_time = asteroids.game_time
 	for idx = #projectiles, 1, -1 do
 		local proj = projectiles[idx]
 
@@ -74,7 +73,7 @@ core.register_globalstep(function(dtime)
 			proj.obj:remove()
 			table.remove(projectiles, idx)
 			if proj.obj:is_valid() then
-				core.log("error", "failed to remove projectile at system time "..step_time.."ms")
+				core.log("error", "failed to remove projectile at game time "..step_time.."s")
 			end
 		end
 
