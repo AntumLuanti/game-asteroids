@@ -18,3 +18,4 @@ TODO:
 - hyperspace teleport
 - lives
 - play faster heartbeat as player advances
+- look into hitscan for projectiles ( https://discord.com/channels/369122544273588224/369123175583186964/1516542652026191902 )
