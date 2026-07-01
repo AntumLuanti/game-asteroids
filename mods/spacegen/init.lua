@@ -15,8 +15,8 @@ core.register_on_generated(function(vmanip, minp, maxp, blockseed)
 	local vm_data = vm:get_data()
 	for idx in ipairs(vm_data) do
 		-- randomly place vacuum or particle nodes
-		local c_id = asteroids.rand(1, 150) == 1 and core.get_content_id("vacuum_particle") or core.get_content_id("vacuum")
-		vm_data[idx] = c_id
+		vm_data[idx] = asteroids.rand(1, 150) == 1 and core.get_content_id("vacuum_particle")
+				or core.get_content_id("vacuum")
 	end
 	vm:set_data(vm_data)
 	vm:write_to_map()
