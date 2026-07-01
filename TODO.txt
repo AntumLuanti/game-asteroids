@@ -3,23 +3,19 @@ TODO:
 - disable fog permanently
 - limit world size
 - make ship "coast" after boost
-- fix jittery direction change while boosting
-- fix screen turning white at times
-- user better collision detection
+- better collision detection
 - make up larger asteroids of multiple nodes
 - use scoring of original Asteroids game
 - update aiming cursor when asteroid is targeted
 - don't exit out of game over formspec with ESC or by clicking outside formspec area
-- fix asteroids only spawning on one side of player
 - increase difficulty with time
 - show minimap by default
 - in classic mode asteroids should be spawned at startup
 - increment level in classic mode when all asteroids destroyed
-- fix asteroids spawning in classic mode
 - use separate high scores for gameplay modes
 - set ship visual pitch & yaw with camera angle
 - create models for asteroids
 - make classic default mode when fixed
 - hyperspace teleport
 - lives
-- player faster heartbeat as player advances
+- play faster heartbeat as player advances

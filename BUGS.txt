@@ -1,0 +1,6 @@
+
+BUGS:
+- jittery direction change while boosting
+- screen turns white at times
+- asteroids only spawning on one side of player
+- asteroids don't always spawn in classic mode
