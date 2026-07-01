@@ -34,8 +34,8 @@ local shoot = function(itemstack, user, pointed)
 	end
 end
 
--- hide hand
 core.override_item("", {
+	-- hide hand
 	wield_image="asteroids_empty.png",
 	on_use = shoot,
 	on_secondary_use = shoot,
@@ -76,7 +76,5 @@ core.register_globalstep(function(dtime)
 				core.log("error", "failed to remove projectile at game time "..step_time.."s")
 			end
 		end
-
-		-- TODO: handle collision with asteroids
 	end
 end)
