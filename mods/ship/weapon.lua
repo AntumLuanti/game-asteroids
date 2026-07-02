@@ -42,6 +42,7 @@ core.override_item("", {
 	on_place = shoot,
 })
 
+-- TODO: move to entity def `on_step` method
 asteroids.register_logic(function(dtime)
 	local step_time = asteroids.game_time
 	for idx = #projectiles, 1, -1 do
