@@ -1,5 +1,5 @@
 
-local time_ms = core.get_us_time() / 1000
+local time_ms = math.floor(asteroids.game_time * 1000)
 
 -- limit viewing range to omit distance particles
 core.settings:set("max_block_send_distance", 0)
@@ -73,7 +73,7 @@ end
 
 if not asteroids.is_classic_gameplay() then
 	asteroids.register_logic(function(dtime)
-		local step_time = core.get_us_time() / 1000
+		local step_time = math.floor(asteroids.game_time * 1000)
 		if step_time - time_ms > 3000 and asteroids.can_spawn() then
 			if asteroids.rand(1, 10) == 1 then
 				time_ms = step_time
