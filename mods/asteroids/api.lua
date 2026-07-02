@@ -166,6 +166,12 @@ asteroids.set_on_destroyed = function(callback)
 end
 
 
+local game_level = 1
+asteroids.get_game_level = function()
+	return game_level
+end
+
+
 --- Clears game world of asteroids & resets game time.
 asteroids.reset = function()
 	for idx = #active_asteroids, 1, -1 do
@@ -179,6 +185,13 @@ asteroids.reset = function()
 	end
 
 	asteroids.game_time = 0
+end
+
+
+--- Clears game world & resets level to default.
+asteroids.restart = function()
+	asteroids.reset()
+	game_level = 1
 end
 
 
@@ -230,12 +243,6 @@ end
 --    `true` if game is paused.
 asteroids.is_paused = function()
 	return game_paused
-end
-
-
-local game_level = 1
-asteroids.get_game_level = function()
-	return game_level
 end
 
 
