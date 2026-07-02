@@ -27,6 +27,9 @@ local current_level = 0
 local update_score_hud = function(player)
 	local meta = player:get_meta()
 	local text = "score: "..meta:get_int("score").."\nhigh score: "..meta:get_int("high score")
+	if asteroids.is_classic_gameplay() then
+		text = text.."\nlevel: "..current_level
+	end
 
 	if hud_id == nil then
 		hud_id = player:hud_add({
