@@ -134,10 +134,16 @@ core.register_on_joinplayer(function(player, last_login)
 end)
 
 
+local ship_controls
+
 core.register_on_dieplayer(function(player, reason)
 	if heartbeat_handle ~= nil then
 		core.sound_stop(heartbeat_handle)
 		heartbeat_handle = nil
+	end
+	if ship_controls.sound_handle ~= nil then
+		core.sound_stop(ship_controls.sound_handle)
+		ship_controls.sound_handle = nil
 	end
 	core.sound_play({name="asteroids_ship_explosion"})
 end)
@@ -197,7 +203,7 @@ asteroids.set_on_destroyed(function(player, points)
 end)
 
 
-local ship_controls = {
+ship_controls = {
 	speed = 0.01,
 	sound_handle = nil,
 	boosting = false,
