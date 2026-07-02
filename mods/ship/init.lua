@@ -115,7 +115,8 @@ core.register_on_joinplayer(function(player, last_login)
 	player:hud_set_flags({
 		hotbar = false,
 		healthbar = false,
-		breathbar = false
+		breathbar = false,
+		wielditem = false
 	})
 
 	local props = player:get_properties()

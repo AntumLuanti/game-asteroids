@@ -35,8 +35,6 @@ local shoot = function(itemstack, user, pointed)
 end
 
 core.override_item("", {
-	-- hide hand
-	wield_image="asteroids_empty.png",
 	on_use = shoot,
 	on_secondary_use = shoot,
 	on_place = shoot,
