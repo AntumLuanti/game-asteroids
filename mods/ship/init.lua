@@ -112,7 +112,11 @@ core.register_on_joinplayer(function(player, last_login)
 	player:set_inventory_formspec("")
 
 	-- disable hotbar
-	player:hud_set_flags({hotbar=false})
+	player:hud_set_flags({
+		hotbar = false,
+		healthbar = false,
+		breathbar = false
+	})
 
 	local props = player:get_properties()
 	-- set player model & mesh
