@@ -47,7 +47,8 @@ on_first_step = function(dtime)
 		return
 	end
 
-	for _ = 1, asteroids_per_level[1], 1 do
+	-- spawn 4 asteroids for level 1, 6 for every other level
+	for _ = 1, asteroids_per_level[asteroids.get_game_level()] or 6, 1 do
 		local a_material = a_types[asteroids.rand(1, #a_types)]
 		asteroids.spawn(player_ref, {material=a_material, size="large"})
 	end
