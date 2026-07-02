@@ -406,6 +406,13 @@ local register_asteroid = function(a_type, a_size)
 				-- add to list of active asteroids
 				table.insert(active_asteroids, self)
 
+				-- set random model to use for visual
+				local props = self.object:get_properties()
+				props.visual = "mesh"
+				props.mesh = "asteroids_asteroid_0"..asteroids.rand(1, 6)..".obj"
+				props.textures = {t}
+				self.object:set_properties(props)
+
 				self.origin = {
 					ms = get_time_ms(),
 					pos = self.object:get_pos()

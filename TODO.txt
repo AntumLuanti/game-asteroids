@@ -4,7 +4,6 @@ TODO:
 - limit world size
 - make ship "coast" after boost
 - better projectile collision detection
-- make up larger asteroids of multiple nodes
 - update aiming cursor when asteroid is targeted
 - don't exit out of game over formspec with ESC or by clicking outside formspec area
 - increase difficulty with time
@@ -13,7 +12,6 @@ TODO:
 - increment level in classic mode when all asteroids destroyed
 - use separate high scores for gameplay modes
 - set ship visual pitch & yaw with camera angle
-- create models for asteroids
 - hyperspace teleport
 - lives
 - play faster heartbeat as player advances
