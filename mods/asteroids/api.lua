@@ -312,7 +312,7 @@ local register_asteroid = function(a_type, a_size)
 	end
 
 	local collision_offset = size / 2
-	local t = "asteroids_"..a_type..".png"
+	local t = "asteroids_"..a_type.."_"..a_size..".png"
 
 	local name = "asteroids:"..a_type.."_"..a_size
 	core.register_entity(":"..name, {
