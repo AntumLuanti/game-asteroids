@@ -20,10 +20,6 @@ asteroids.unregister_logic = function(func)
 	for idx, f in ipairs(logic_functions) do
 		if f == func then
 			table.remove(logic_functions, idx)
-
-			-- DEBUG:
-			core.log("unregistered")
-
 			return
 		end
 	end
