@@ -198,7 +198,7 @@ end)
 
 
 ship_controls = {
-	speed = 0.01,
+	speed = 0.05,
 	sound_handle = nil,
 	boosting = false,
 
