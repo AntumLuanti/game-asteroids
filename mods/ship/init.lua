@@ -120,6 +120,7 @@ core.register_on_joinplayer(function(player, last_login)
 	props.mesh = "asteroids_ship.obj"
 	props.textures = {"asteroids_ship.png"}
 	props.visual_size = {x=1, y=1, z=1}
+	props.collisionbox = {-0.1, -0.1, -0.1, 0.1, 0.1, 0.1}
 	props.eye_height = 0
 	props.hp_max = 1
 	player:set_properties(props)
