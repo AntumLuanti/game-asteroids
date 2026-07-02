@@ -39,6 +39,10 @@ So far everything here is [CC0]. But more textures will be added in the future.
     - [CC0]
     - author: pasmateRs (para)
     - [link](https://opengameart.org/node/22964)
+- asteroids_asteroid_06
+    - [CC0]
+    - author: Travis O'Brien (Heathal)
+    - [link](https://opengameart.org/node/72007)
 
 [CC BY 3.0]: https://creativecommons.org/licenses/by/3.0/
 [CC0]: https://creativecommons.org/publicdomain/zero/1.0/

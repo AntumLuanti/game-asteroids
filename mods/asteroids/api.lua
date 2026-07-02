@@ -409,7 +409,7 @@ local register_asteroid = function(a_type, a_size)
 				-- set random model to use for visual
 				local props = self.object:get_properties()
 				props.visual = "mesh"
-				props.mesh = "asteroids_asteroid_0"..asteroids.rand(1, 5)..".obj"
+				props.mesh = "asteroids_asteroid_0"..asteroids.rand(1, 6)..".obj"
 				props.textures = {t}
 				self.object:set_properties(props)
 
