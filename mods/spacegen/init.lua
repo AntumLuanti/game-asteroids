@@ -71,28 +71,26 @@ asteroids.init_classic_spawn = function(player)
 end
 
 
-asteroids.register_logic(function(dtime)
-	if asteroids.is_classic_gameplay() then
-		return
-	end
+if not asteroids.is_classic_gameplay() then
+	asteroids.register_logic(function(dtime)
+		local step_time = core.get_us_time() / 1000
+		if step_time - time_ms > 3000 and asteroids.can_spawn() then
+			if asteroids.rand(1, 10) == 1 then
+				time_ms = step_time
+				local a_type = a_types[asteroids.rand(1, 3)]
+				local a_size = a_sizes[asteroids.rand(1, 3)]
+				local player = core.get_player_by_name("singleplayer")
 
-	local step_time = core.get_us_time() / 1000
-	if step_time - time_ms > 3000 and asteroids.can_spawn() then
-		if asteroids.rand(1, 10) == 1 then
-			time_ms = step_time
-			local a_type = a_types[asteroids.rand(1, 3)]
-			local a_size = a_sizes[asteroids.rand(1, 3)]
-			local player = core.get_player_by_name("singleplayer")
-
-			local obj = asteroids.spawn(player, {material=a_type, size=a_size})
-			if obj then
-				spawned = spawned + 1
-				-- DEBUG:
-				core.log("spawned asteroid "..spawned.." ("..a_type.."_"..a_size..")")
+				local obj = asteroids.spawn(player, {material=a_type, size=a_size})
+				if obj then
+					spawned = spawned + 1
+					-- DEBUG:
+					core.log("spawned asteroid "..spawned.." ("..a_type.."_"..a_size..")")
+				end
 			end
 		end
-	end
-end)
+	end)
+end
 
 core.register_globalstep(function(dtime)
 	-- make light persist
