@@ -18,6 +18,8 @@ end)
 -- score HUD ID
 local hud_id = nil
 
+local current_level = 0
+
 --- Updates or adds score HUD.
 --
 --  @param player
@@ -42,6 +44,7 @@ end
 
 local on_start_level = function(player)
 	asteroids.reset()
+	current_level = asteroids.get_game_level()
 	update_score_hud(player)
 
 	if core.settings:get_bool("asteroids.heartbeat", true) and heartbeat_handle == nil then
@@ -220,6 +223,11 @@ local ship_controls = {
 asteroids.register_logic(function(dtime)
 	local player = core.get_player_by_name("singleplayer")
 	if not player then
+		return
+	end
+
+	if current_level ~= asteroids.get_game_level() then
+		on_start_level(player)
 		return
 	end
 
