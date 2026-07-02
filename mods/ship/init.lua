@@ -46,7 +46,6 @@ end
 
 
 local on_start_level = function(player)
-	asteroids.reset()
 	current_level = asteroids.get_game_level()
 	update_score_hud(player)
 
@@ -138,7 +137,10 @@ core.register_on_dieplayer(function(player, reason)
 end)
 
 
-core.register_on_respawnplayer(on_start)
+core.register_on_respawnplayer(function(player)
+	asteroids.restart()
+	on_start(player)
+end)
 
 
 core.register_on_player_receive_fields(function(player, formname, fields)
@@ -230,6 +232,7 @@ asteroids.register_logic(function(dtime)
 	end
 
 	if current_level ~= asteroids.get_game_level() then
+		asteroids.reset()
 		on_start_level(player)
 		return
 	end
