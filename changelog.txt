@@ -1,4 +1,21 @@
 
+2026-07-02-wip
+--------------
+- fixed classic gameplay asteroid spawning
+- uses meshes for asteroid objects
+- redid asteroids textures
+- new ship model & texture
+- added "heartbeat" backgound sound
+- fixed player/asteroid collision
+- classic mode shows game level
+- game mode high scores are independent of each other
+- classic mode is default
+- unused HUD elements disabled
+- increased ship movement speed
+- active projectiles limited to 2 in classic mode & 5 in endless
+- decreased projectile lifespan to decrease cooldown from active limit
+
+
 0.2-wip
 -------
 - fixes for ContentDB inclusion policy
