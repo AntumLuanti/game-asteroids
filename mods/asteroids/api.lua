@@ -324,7 +324,7 @@ local register_asteroid = function(a_type, a_size)
 		return
 	end
 
-	local collision_offset = size / 2
+	local collision_offset = size / 10
 	local t = "asteroids_"..a_type.."_"..a_size..".png"
 
 	local name = "asteroids:"..a_type.."_"..a_size
