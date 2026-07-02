@@ -48,6 +48,7 @@ asteroids.register_logic(function(dtime)
 		local proj = projectiles[idx]
 
 		local pos = proj.obj:get_pos()
+		-- FIXME: need better collision detection
 		local targets = pos and core.get_objects_inside_radius(pos, 1) or {}
 
 		for _, obj in pairs(targets) do
