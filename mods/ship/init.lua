@@ -40,6 +40,22 @@ local update_score_hud = function(player)
 end
 
 
+local on_start_level = function(player)
+	asteroids.reset()
+	update_score_hud(player)
+
+	if core.settings:get_bool("asteroids.heartbeat", true) and heartbeat_handle == nil then
+		heartbeat_handle = core.sound_play("asteroids_heartbeat_60bpm", {toplayer="singleplayer", loop=true})
+	end
+
+	asteroids.set_paused(false)
+
+	if asteroids.is_classic_gameplay() then
+		asteroids.init_classic_spawn(player)
+	end
+end
+
+
 local player_input = nil
 
 local heartbeat_handle
@@ -59,17 +75,7 @@ local on_start = function(player)
 	-- reset score for new game
 	meta:set_int("score", 0)
 
-	update_score_hud(player)
-
-	if core.settings:get_bool("asteroids.heartbeat", true) and heartbeat_handle == nil then
-		heartbeat_handle = core.sound_play("asteroids_heartbeat_60bpm", {toplayer="singleplayer", loop=true})
-	end
-
-	asteroids.set_paused(false)
-
-	if asteroids.is_classic_gameplay() then
-		asteroids.init_classic_spawn(player)
-	end
+	on_start_level(player)
 end
 
 
@@ -126,10 +132,7 @@ core.register_on_dieplayer(function(player, reason)
 end)
 
 
-core.register_on_respawnplayer(function(player)
-	asteroids.reset()
-	on_start(player)
-end)
+core.register_on_respawnplayer(on_start)
 
 
 core.register_on_player_receive_fields(function(player, formname, fields)
