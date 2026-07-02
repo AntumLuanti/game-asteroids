@@ -15,8 +15,8 @@ core.register_entity("asteroids_ship:projectile", {
 local projectiles = {}
 
 local shoot = function(itemstack, user, pointed)
-	if asteroids.is_classic_gameplay() and #projectiles > 1 then
-		-- only 2 active projectiles allowed in classic gameplay
+	if (asteroids.is_classic_gameplay() and #projectiles > 1) or #projectiles > 4 then
+		-- limit active projectiles to 2 in classic gameplay & 5 otherwise
 		return
 	end
 
