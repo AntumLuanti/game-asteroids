@@ -4,6 +4,7 @@ asteroids = {
 }
 asteroids.modpath = core.get_modpath(asteroids.modname)
 
+dofile(asteroids.modpath.."/settings.lua")
 dofile(asteroids.modpath.."/logic.lua")
 local register_asteroid = dofile(asteroids.modpath.."/api.lua")
 
