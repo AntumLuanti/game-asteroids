@@ -392,8 +392,6 @@ local register_asteroid = function(a_type, a_size)
 
 
 		on_step = function(self, dtime, moveresult)
-			-- FIXME: not being called in classic mode
-
 			if self.origin == nil then
 				-- FIXME: should be done at time of creation?
 
