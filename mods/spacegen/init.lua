@@ -44,12 +44,17 @@ local player_ref
 --    Time since last globalstep.
 local on_first_step
 on_first_step = function(dtime)
+	-- without this delay asteroids disappear after spawn
+	if asteroids.game_time < 0.5 then
+		return
+	end
+
 	for _ = 1, asteroids_per_level[1], 1 do
 		local a_material = a_types[asteroids.rand(1, #a_types)]
-		-- FIXME: not working
 		asteroids.spawn(player_ref, {material=a_material, size="large"})
 	end
 
+	-- don't spawn more asteroids until game restarts
 	asteroids.unregister_logic(on_first_step)
 	player_ref = nil
 end
