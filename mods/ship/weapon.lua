@@ -42,11 +42,7 @@ core.override_item("", {
 	on_place = shoot,
 })
 
-core.register_globalstep(function(dtime)
-	if asteroids.is_paused() then
-		return
-	end
-
+asteroids.register_logic(function(dtime)
 	local step_time = asteroids.game_time
 	for idx = #projectiles, 1, -1 do
 		local proj = projectiles[idx]

@@ -50,14 +50,7 @@ on_first_step = function(dtime)
 		asteroids.spawn(player_ref, {material=a_material, size="large"})
 	end
 
-	for idx, func in ipairs(core.registered_globalsteps) do
-		if func == on_first_step then
-			-- deregister callback so not called on later steps
-			table.remove(core.registered_globalsteps, idx)
-			break
-		end
-	end
-
+	asteroids.unregister_logic(on_first_step)
 	player_ref = nil
 end
 
@@ -68,15 +61,13 @@ end
 --    The player for whom asteroids are being spawned.
 asteroids.init_classic_spawn = function(player)
 	player_ref = player
-	core.register_globalstep(on_first_step)
+	--~ core.register_globalstep(on_first_step)
+	asteroids.register_logic(on_first_step)
 end
 
 
-core.register_globalstep(function(dtime)
-	-- make light persist
-	core.set_timeofday(0.5)
-
-	if asteroids.is_paused() or asteroids.is_classic_gameplay() then
+asteroids.register_logic(function(dtime)
+	if asteroids.is_classic_gameplay() then
 		return
 	end
 
@@ -96,4 +87,9 @@ core.register_globalstep(function(dtime)
 			end
 		end
 	end
+end)
+
+core.register_globalstep(function(dtime)
+	-- make light persist
+	core.set_timeofday(0.5)
 end)

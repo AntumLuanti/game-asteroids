@@ -4,6 +4,7 @@ asteroids = {
 }
 asteroids.modpath = core.get_modpath(asteroids.modname)
 
+dofile(asteroids.modpath.."/logic.lua")
 local register_asteroid = dofile(asteroids.modpath.."/api.lua")
 
 
@@ -17,10 +18,7 @@ end
 --- Current game duration.
 asteroids.game_time = 0
 
-core.register_globalstep(function(dtime)
-	if asteroids.is_paused() then
-		return
-	end
-
+asteroids.register_logic(function(dtime)
+	-- track game duration
 	asteroids.game_time = asteroids.game_time + dtime
 end)

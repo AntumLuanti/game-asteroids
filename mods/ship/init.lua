@@ -214,7 +214,7 @@ local ship_controls = {
 	end,
 }
 
-local logic = function()
+asteroids.register_logic(function(dtime)
 	local player = core.get_player_by_name("singleplayer")
 	if not player then
 		return
@@ -232,13 +232,4 @@ local logic = function()
 			break
 		end
 	end
-end
-
-
-core.register_globalstep(function(dtime)
-	if asteroids.is_paused() then
-		return
-	end
-
-	logic()
 end)
