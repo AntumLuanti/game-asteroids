@@ -48,7 +48,7 @@ asteroids.register_logic(function(dtime)
 		local proj = projectiles[idx]
 
 		local pos = proj.obj:get_pos()
-		local targets = core.get_objects_inside_radius(pos, 1)
+		local targets = pos and core.get_objects_inside_radius(pos, 1) or {}
 
 		for _, obj in pairs(targets) do
 			if obj ~= proj.obj and not obj:is_player() then
