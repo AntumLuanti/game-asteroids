@@ -133,7 +133,7 @@ local Mode = {
 }
 
 -- determines if rules resembling classic gameplay should be used
-local gameplay_mode = Mode[core.settings:get("asteroids.mode")] or Mode.endless
+local gameplay_mode = Mode[core.settings:get("asteroids.mode")] or Mode.classic
 
 --- Retrieves classic gameplay state.
 --
