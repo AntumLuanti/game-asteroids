@@ -45,6 +45,8 @@ local update_score_hud = function(player)
 end
 
 
+local heartbeat_handle
+
 local on_start_level = function(player)
 	current_level = asteroids.get_game_level()
 	update_score_hud(player)
@@ -62,8 +64,6 @@ end
 
 
 local player_input = nil
-
-local heartbeat_handle
 
 --- Initializes player with default values.
 local on_start = function(player)
