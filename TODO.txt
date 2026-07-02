@@ -8,8 +8,6 @@ TODO:
 - don't exit out of game over formspec with ESC or by clicking outside formspec area
 - increase difficulty with time
 - show minimap by default
-- in classic mode asteroids should be spawned at startup
-- increment level in classic mode when all asteroids destroyed
 - use separate high scores for gameplay modes
 - set ship visual pitch & yaw with camera angle
 - hyperspace teleport
