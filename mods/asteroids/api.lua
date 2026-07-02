@@ -412,7 +412,7 @@ local register_asteroid = function(a_type, a_size)
 				}
 
 				-- speed at which asteroid is travelling
-				local speed = rand:next(5, 20) / 10
+				local speed = rand:next(10, 20) / 10
 
 				local target_point = gameplay_center
 				local player = core.get_player_by_name("singleplayer")
