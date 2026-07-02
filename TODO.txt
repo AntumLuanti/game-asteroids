@@ -1,6 +1,5 @@
 
 TODO:
-- disable fog permanently
 - limit world size
 - make ship "coast" after boost
 - better projectile collision detection

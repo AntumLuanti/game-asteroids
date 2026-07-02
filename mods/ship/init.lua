@@ -102,7 +102,6 @@ core.register_on_joinplayer(function(player, last_login)
 		},
 		clouds = false
 	})
-	-- TODO: disable fog
 
 	-- disable inventory
 	player:set_inventory_formspec("")
