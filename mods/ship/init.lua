@@ -14,13 +14,15 @@ local hud_id = nil
 
 local current_level = 0
 
+local mode_name = asteroids.get_mode_name()
+
 --- Updates or adds score HUD.
 --
 --  @param player
 --    Player whose HUD is being updated.
 local update_score_hud = function(player)
 	local meta = player:get_meta()
-	local text = "score: "..meta:get_int("score").."\nhigh score: "..meta:get_int("high score")
+	local text = "score: "..meta:get_int("score").."\nhigh score: "..meta:get_int(mode_name.." high score")
 	if asteroids.is_classic_gameplay() then
 		text = text.."\nlevel: "..current_level
 	end
@@ -66,8 +68,8 @@ local on_start = function(player)
 	player:set_look_vertical(0)
 
 	local meta = player:get_meta()
-	if meta:get_int("high score") == nil then
-		meta:set_int("high score", 0)
+	if meta:get_int(mode_name.." high score") == nil then
+		meta:set_int(mode_name.." high score", 0)
 	end
 	-- TODO: display this in HUD?
 	--~ local prev_score = meta:get_int("score") or 0
@@ -190,8 +192,8 @@ asteroids.set_on_destroyed(function(player, points)
 	local meta = player:get_meta()
 	points = meta:get_int("score") + points
 	meta:set_int("score", points)
-	if points > meta:get_int("high score") then
-		meta:set_int("high score", points)
+	if points > meta:get_int(mode_name.." high score") then
+		meta:set_int(mode_name.." high score", points)
 	end
 	update_score_hud(player)
 end)
