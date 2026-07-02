@@ -341,7 +341,7 @@ local register_asteroid = function(a_type, a_size)
 	end
 
 	local collision_offset = size / 10
-	local t = "asteroids_"..a_type.."_"..a_size..".png"
+	local tex = "asteroids_"..a_type.."_"..a_size..".png"
 
 	local name = "asteroids:"..a_type.."_"..a_size
 	core.register_entity(":"..name, {
@@ -350,9 +350,9 @@ local register_asteroid = function(a_type, a_size)
 			visual = "cube",
 			visual_size = {x=size, y=size, z=size},
 			textures = {
-				t, t,
-				t, t,
-				t, t,
+				tex, tex,
+				tex, tex,
+				tex, tex,
 			},
 			physical = true,
 			collide_with_objects = true,
@@ -426,7 +426,7 @@ local register_asteroid = function(a_type, a_size)
 				local props = self.object:get_properties()
 				props.visual = "mesh"
 				props.mesh = "asteroids_asteroid_0"..asteroids.rand(1, 6)..".obj"
-				props.textures = {t}
+				props.textures = {tex}
 				self.object:set_properties(props)
 
 				self.origin = {
