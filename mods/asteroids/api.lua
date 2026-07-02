@@ -143,6 +143,22 @@ asteroids.is_classic_gameplay = function()
 	return gameplay_mode == Mode.classic
 end
 
+local mode_name
+for k, v in pairs(Mode) do
+	if v == gameplay_mode then
+		mode_name = k
+		break
+	end
+end
+
+--- Retrieves human-readable mode name.
+--
+--  @return
+--    Mode name.
+asteroids.get_mode_name = function()
+	return mode_name
+end
+
 
 --- Called when an asteroid is destroyed.
 --
