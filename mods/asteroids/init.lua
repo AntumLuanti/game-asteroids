@@ -16,6 +16,7 @@ end
 
 
 --- Current game duration.
+--  TODO: rename to level time
 asteroids.game_time = 0
 
 asteroids.register_logic(function(dtime)
