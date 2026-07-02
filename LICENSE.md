@@ -35,7 +35,7 @@ So far everything here is [CC0]. But more textures will be added in the future.
 
 ### Models
 
-- asteroids_asteroid_[01-06]
+- asteroids_asteroid_[01-05]
     - [CC0]
     - author: pasmateRs (para)
     - [link](https://opengameart.org/node/22964)
