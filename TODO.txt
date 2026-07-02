@@ -7,6 +7,9 @@ TODO:
 - update aiming cursor when asteroid is targeted
 - don't exit out of game over formspec with ESC or by clicking outside formspec area
 - increase difficulty with time
+  - increase asteroid count limit (endless)
+  - increase asteroid speed (endless)
+  - increase asteroid spawn rate (endless)
 - show minimap by default
 - set ship visual pitch & yaw with camera angle
 - hyperspace teleport
