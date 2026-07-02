@@ -76,8 +76,8 @@ if not asteroids.is_classic_gameplay() then
 		if step_time - time_ms > 3000 and asteroids.can_spawn() then
 			if asteroids.rand(1, 10) == 1 then
 				time_ms = step_time
-				local a_type = a_types[asteroids.rand(1, 3)]
-				local a_size = a_sizes[asteroids.rand(1, 3)]
+				local a_type = a_types[asteroids.rand(1, #a_types)]
+				local a_size = a_sizes[asteroids.rand(1, #a_sizes)]
 				local player = core.get_player_by_name("singleplayer")
 
 				local obj = asteroids.spawn(player, {material=a_type, size=a_size})
