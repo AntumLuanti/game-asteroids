@@ -9,6 +9,10 @@ proof-of-concept.
 
 ___WARNING:__ Game is in early development. It is very buggy._
 
+___WARNING:__ This game rewrites contents of `minetest.conf`. It will restore original values upon
+normal shutdown. If normal shutdown doesn't occur (e.g. crash, power loss, etc.) the rewritten
+values will remain._
+
 Video demo: https://youtu.be/Hf6wewgVrFQ
 
 ## Gameplay
