@@ -69,7 +69,8 @@ asteroids.register_logic(function(dtime)
 			end
 		end
 
-		if proj.obj:is_valid() and step_time - proj.birth >= 2 then
+		-- projectile lifespan is limited to 1 second
+		if proj.obj:is_valid() and step_time - proj.birth >= 1 then
 			-- remove projectile from world
 			proj.obj:remove()
 			table.remove(projectiles, idx)
