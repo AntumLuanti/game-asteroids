@@ -309,15 +309,15 @@ local register_asteroid = function(a_type, a_size)
 	local classic_gameplay = asteroids.is_classic_gameplay()
 	if a_size == "small" then
 		hp = classic_gameplay and 1 or 3
-		size = 0.5
+		size = 1
 		point_value = classic_gameplay and 100 or 20
 	elseif a_size == "medium" then
 		hp = classic_gameplay and 1 or 5
-		size = 1
+		size = 3
 		point_value = 50
 	elseif a_size == "large" then
 		hp = classic_gameplay and 1 or 10
-		size = 2
+		size = 6
 		point_value = classic_gameplay and 20 or 100
 	else
 		core.log("error", "unknown asteroid size: "..a_size)
