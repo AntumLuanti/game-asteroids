@@ -4,3 +4,4 @@ BUGS:
 - screen turns white at times
 - asteroids only spawning on one side of player
 - projectiles don't always move in straight line
+- asteroid collision doesn't always work
