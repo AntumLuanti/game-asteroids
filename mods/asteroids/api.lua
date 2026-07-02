@@ -233,6 +233,12 @@ asteroids.is_paused = function()
 end
 
 
+local game_level = 1
+asteroids.get_game_level = function()
+	return game_level
+end
+
+
 --- Retrieves available asteroid materials.
 asteroids.get_materials = function()
 	return {"rock", "ice", "molten"}
@@ -498,6 +504,10 @@ local register_asteroid = function(a_type, a_size)
 							.."_small")
 					if not obj then
 						core.log("error", "failed to add asteroids to game")
+					end
+				else
+					if #active_asteroids == 0 then
+						game_level = game_level + 1
 					end
 				end
 			end
